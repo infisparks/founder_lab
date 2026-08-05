@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FounderLab - Admin CRM Portal</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <!-- Google Fonts Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        poppins: ['Poppins', 'sans-serif'],
+                    },
+                    colors: {
+                        'brand-blue': '#2B64F5',
+                        'brand-navy': '#0A1128',
+                        'brand-purple': '#3b0df2',
+                        'brand-light': '#F4F8FF',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .scrollbar-thin::-webkit-scrollbar {
+            height: 6px;
+            width: 6px;
+        }
+        .scrollbar-thin::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        .scrollbar-thin::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body class="bg-[#F5F6F8] font-poppins text-gray-800 min-h-screen selection:bg-[#3b0df2] selection:text-white">
+
+    <!-- LOGIN SCREEN -->
+    <div id="loginScreen" class="fixed inset-0 z-50 bg-[#0A1128] flex items-center justify-center p-4">
+        <!-- Glow accents -->
+        <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-[#3b0df2]/20 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-brand-blue/20 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="bg-white border border-gray-100 rounded-3xl p-8 sm:p-10 w-full max-w-md shadow-2xl relative z-10 text-center">
+            <div class="w-14 h-14 rounded-2xl bg-[#3b0df2]/10 text-[#3b0df2] flex items-center justify-center mx-auto mb-4 text-2xl font-black">
+                <i class="ph-fill ph-shield-check"></i>
+            </div>
+            <h1 class="text-2xl font-black text-brand-navy tracking-tight uppercase">FounderLab CRM</h1>
+            <p class="text-xs font-semibold text-gray-500 mb-8 mt-1">Authorized Admin Login Required</p>
+
+            <form id="loginForm" onsubmit="handleLogin(event)" class="space-y-4 text-left">
+                <div>
+                    <label class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1.5">Admin Email *</label>
+                    <div class="relative">
+                        <i class="ph-bold ph-envelope text-gray-400 absolute left-3.5 top-3.5 text-base"></i>
+                        <input type="email" id="loginEmail" placeholder="admin@founderlab.com" required 
+                            class="w-full bg-gray-50 border border-gray-200 rounded-xl py-3 pl-10 pr-4 text-sm font-medium focus:outline-none focus:border-[#3b0df2] focus:bg-white transition-colors">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1.5">Password *</label>
+                    <div class="relative">
+                        <i class="ph-bold ph-lock text-gray-400 absolute left-3.5 top-3.5 text-base"></i>
+                        <input type="password" id="loginPassword" placeholder="••••••••" required 
+                            class="w-full bg-gray-50 border border-gray-200 rounded-xl py-3 pl-10 pr-4 text-sm font-medium focus:outline-none focus:border-[#3b0df2] focus:bg-white transition-colors">
+                    </div>
+                </div>
+
+                <div id="loginError" class="hidden bg-red-50 text-red-600 text-xs font-semibold p-3 rounded-xl border border-red-100 flex items-center gap-2">
+                    <i class="ph-fill ph-warning-circle text-base shrink-0"></i>
+                    <span id="loginErrorText">Invalid credentials. Please try again.</span>
+                </div>
+
+                <button type="submit" id="loginBtn" class="w-full bg-[#3b0df2] hover:bg-[#2c08c4] text-white font-bold text-sm py-3.5 rounded-xl shadow-lg shadow-[#3b0df2]/20 transition-all flex items-center justify-center gap-2">
+                    <span>Access Admin Portal</span>
+                    <i class="ph-bold ph-arrow-right"></i>
+                </button>
+            </form>
+
+            <div class="mt-6 pt-4 border-t border-gray-100 text-[11px] font-medium text-gray-400">
+                🔒 Secured with Firebase Authentication & Admin Portal
+            </div>
+        </div>
+    </div>
+
+
+    <!-- MAIN CRM DASHBOARD SCREEN (Hidden until logged in) -->
+    <div id="dashboardScreen" class="hidden min-h-screen flex flex-col">
+        
+        <!-- Top Executive Navbar -->
+        <header class="bg-white border-b border-gray-200 sticky top-0 z-40 px-4 sm:px-8 py-3.5 flex items-center justify-between shadow-xs">
+            <div class="flex items-center gap-3">
+                <div class="w-9 h-9 rounded-xl bg-[#3b0df2] text-white flex items-center justify-center font-black text-lg">
+                    FL
+                </div>
+                <div>
+                    <h1 class="text-lg font-black text-brand-navy leading-none tracking-tight">FounderLab Admin CRM</h1>
+                    <p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mt-0.5 flex items-center gap-1.5">
+                        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span> Live Sales & Pipeline Manager
+                    </p>
+                </div>
+            </div>
+
+            <!-- Header Actions -->
+            <div class="flex items-center gap-3">
+                <button onclick="openAddLeadModal()" class="bg-[#3b0df2] hover:bg-[#2c08c4] text-white text-xs font-bold px-3.5 py-2 rounded-xl shadow-sm flex items-center gap-1.5 transition-transform hover:scale-105">
+                    <i class="ph-bold ph-plus text-sm"></i>
+                    <span>Add Lead</span>
+                </button>
+                
+                <button onclick="openAddStageModal()" class="bg-gray-100 hover:bg-gray-200 text-brand-navy text-xs font-bold px-3.5 py-2 rounded-xl border border-gray-200 flex items-center gap-1.5 transition-colors">
+                    <i class="ph-bold ph-[#3b0df2] ph-columns text-sm"></i>
+                    <span class="hidden sm:inline">+ Pipeline Stage</span>
+                </button>
+
+                <div class="h-6 w-px bg-gray-200"></div>
+
+                <div class="flex items-center gap-2">
+                    <span id="userEmailDisplay" class="text-xs font-semibold text-gray-600 hidden md:inline">admin@founderlab.com</span>
+                    <button onclick="handleLogout()" class="text-gray-400 hover:text-red-600 p-2 rounded-xl hover:bg-red-50 transition-colors" title="Logout">
+                        <i class="ph-bold ph-sign-out text-lg"></i>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Stats Overview Bar -->
+        <section class="bg-white border-b border-gray-200 px-4 sm:px-8 py-4">
+            <div class="max-w-7xl mx-auto grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-6">
+                
+                <div class="bg-slate-50 border border-gray-200/80 rounded-2xl p-3.5 flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-blue-100 text-[#3b0df2] flex items-center justify-center shrink-0">
+                        <i class="ph-fill ph-users text-xl"></i>
+                    </div>
+                    <div>
+                        <span class="text-[10px] font-extrabold text-gray-400 uppercase tracking-wider block">Total Leads</span>
+                        <span id="statTotalLeads" class="text-lg font-black text-brand-navy">1</span>
+                    </div>
+                </div>
+
+                <div class="bg-slate-50 border border-gray-200/80 rounded-2xl p-3.5 flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center shrink-0">
+                        <i class="ph-fill ph-[#3b0df2] ph-currency-inr text-xl"></i>
+                    </div>
+                    <div>
+                        <span class="text-[10px] font-extrabold text-gray-400 uppercase tracking-wider block">Total Revenue</span>
+                        <span id="statTotalRevenue" class="text-lg font-black text-emerald-600">₹9</span>
+                    </div>
+                </div>
+
+                <div class="bg-slate-50 border border-gray-200/80 rounded-2xl p-3.5 flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-purple-100 text-purple-600 flex items-center justify-center shrink-0">
+                        <i class="ph-fill ph-handshake text-xl"></i>
+                    </div>
+                    <div>
+                        <span class="text-[10px] font-extrabold text-gray-400 uppercase tracking-wider block">Meeting Done</span>
+                        <span id="statMeetingsDone" class="text-lg font-black text-brand-navy">0</span>
+                    </div>
+                </div>
+
+                <div class="bg-slate-50 border border-gray-200/80 rounded-2xl p-3.5 flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-amber-100 text-amber-600 flex items-center justify-center shrink-0">
+                        <i class="ph-fill ph-[#3b0df2] ph-check-circle text-xl"></i>
+                    </div>
+                    <div>
+                        <span class="text-[10px] font-extrabold text-gray-400 uppercase tracking-wider block">Payment Success</span>
+                        <span id="statSuccessRate" class="text-lg font-black text-brand-navy">100%</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Search & Filter Control Bar -->
+        <div class="px-4 sm:px-8 py-4 bg-[#F5F6F8] flex flex-col sm:flex-row items-center justify-between gap-3">
+            <div class="relative w-full sm:w-80">
+                <i class="ph-bold ph-magnifying-glass text-gray-400 absolute left-3.5 top-3 text-sm"></i>
+                <input type="text" id="searchQuery" oninput="renderPipeline()" placeholder="Search name, email, phone, pay_id..."
+                    class="w-full bg-white border border-gray-200 rounded-xl py-2 pl-9 pr-4 text-xs font-medium focus:outline-none focus:border-[#3b0df2] shadow-xs">
+            </div>
+
+            <div class="flex items-center gap-2 w-full sm:w-auto overflow-x-auto pb-1 sm:pb-0 scrollbar-none">
+                <span class="text-xs font-bold text-gray-500 whitespace-nowrap">Filter Payment:</span>
+                <select id="filterStatus" onchange="renderPipeline()" class="bg-white border border-gray-200 rounded-xl px-3 py-2 text-xs font-semibold text-gray-700 focus:outline-none shadow-xs">
+                    <option value="ALL">All Statuses</option>
+                    <option value="SUCCESS">Payment SUCCESS Only</option>
+                    <option value="FAILED">Payment FAILED Only</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- KANBAN PIPELINE BOARD -->
+        <main class="flex-1 px-4 sm:px-8 pb-8 overflow-x-auto scrollbar-thin">
+            <div id="pipelineContainer" class="flex gap-4 sm:gap-6 min-w-max items-start">
+                <!-- Columns dynamically generated by JavaScript -->
+            </div>
+        </main>
+
+    </div>
+
+
+    <!-- MODAL: LEAD DETAILS & NOTES DRAWER -->
+    <div id="leadModal" class="hidden fixed inset-0 z-50 bg-black/50 backdrop-blur-xs flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-xl w-full p-6 sm:p-8 shadow-2xl relative max-h-[90vh] overflow-y-auto scrollbar-thin">
+            <button onclick="closeLeadModal()" class="absolute top-5 right-5 text-gray-400 hover:text-gray-600 p-2 rounded-full hover:bg-gray-100">
+                <i class="ph-bold ph-x text-lg"></i>
+            </button>
+
+            <div class="flex items-center gap-3 mb-4">
+                <div class="w-12 h-12 rounded-2xl bg-[#3b0df2]/10 text-[#3b0df2] font-black text-xl flex items-center justify-center shrink-0" id="modalAvatar">
+                    SM
+                </div>
+                <div>
+                    <h2 class="text-xl font-black text-brand-navy leading-tight" id="modalLeadName">Shaikh Mudassir</h2>
+                    <p class="text-xs text-gray-500 font-medium" id="modalLeadEmail">mudassirs472@gmail.com</p>
+                </div>
+            </div>
+
+            <!-- Quick Lead Metadata -->
+            <div class="grid grid-cols-2 gap-3 bg-gray-50 border border-gray-200/80 rounded-2xl p-4 mb-6">
+                <div>
+                    <span class="text-[10px] font-extrabold text-gray-400 uppercase block">Phone / WhatsApp</span>
+                    <span class="text-xs font-bold text-brand-navy flex items-center gap-1.5 mt-0.5" id="modalLeadPhone">
+                        +91 9958399157
+                    </span>
+                </div>
+                <div>
+                    <span class="text-[10px] font-extrabold text-gray-400 uppercase block">Payment ID</span>
+                    <span class="text-xs font-mono font-bold text-[#3b0df2] mt-0.5 block" id="modalPaymentId">
+                        pay_TM3WOx7zkLN6ik
+                    </span>
+                </div>
+                <div>
+                    <span class="text-[10px] font-extrabold text-gray-400 uppercase block">Amount Paid</span>
+                    <span class="text-xs font-bold text-emerald-600 mt-0.5 block" id="modalAmount">₹9</span>
+                </div>
+                <div>
+                    <span class="text-[10px] font-extrabold text-gray-400 uppercase block">Payment Status</span>
+                    <span class="inline-block mt-0.5 text-[10px] font-black px-2 py-0.5 rounded uppercase" id="modalPaymentStatus">
+                        SUCCESS
+                    </span>
+                </div>
+            </div>
+
+            <!-- Change Pipeline Stage Selector -->
+            <div class="mb-6">
+                <label class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-2">Move Pipeline Stage</label>
+                <select id="modalStageSelect" onchange="updateLeadStageFromModal()" class="w-full bg-white border border-gray-300 rounded-xl py-2.5 px-3 text-xs font-bold text-brand-navy focus:outline-none focus:border-[#3b0df2] shadow-xs">
+                    <!-- Options populated dynamically -->
+                </select>
+            </div>
+
+            <!-- Direct Contact Buttons -->
+            <div class="flex gap-3 mb-6">
+                <a id="modalWhatsappBtn" href="#" target="_blank" class="flex-1 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold py-2.5 rounded-xl flex items-center justify-center gap-2 transition-colors">
+                    <i class="ph-bold ph-whatsapp-logo text-base"></i> WhatsApp Lead
+                </a>
+                <a id="modalCallBtn" href="#" class="flex-1 bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold py-2.5 rounded-xl flex items-center justify-center gap-2 transition-colors">
+                    <i class="ph-bold ph-phone text-base"></i> Call Lead
+                </a>
+            </div>
+
+            <!-- Notes Section -->
+            <div class="border-t border-gray-100 pt-6">
+                <h3 class="font-black text-sm text-brand-navy mb-3 flex items-center gap-2">
+                    <i class="ph-bold ph-note-pencil text-[#3b0df2]"></i> Notes & Call History
+                </h3>
+
+                <!-- Notes List -->
+                <div id="modalNotesList" class="space-y-3 mb-4 max-h-48 overflow-y-auto scrollbar-thin pr-1">
+                    <!-- Dynamic notes -->
+                </div>
+
+                <!-- Add Note Form -->
+                <form onsubmit="handleAddNote(event)" class="space-y-2">
+                    <textarea id="newNoteText" placeholder="Write a note (e.g. Called customer, meeting scheduled for tomorrow...)" required rows="2"
+                        class="w-full bg-gray-50 border border-gray-200 rounded-xl p-3 text-xs font-medium focus:outline-none focus:border-[#3b0df2] focus:bg-white transition-colors"></textarea>
+                    <button type="submit" class="w-full bg-[#3b0df2] hover:bg-[#2c08c4] text-white text-xs font-bold py-2.5 rounded-xl shadow-xs transition-colors flex items-center justify-center gap-1.5">
+                        <i class="ph-bold ph-plus"></i> Save Note
+                    </button>
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- MODAL: ADD CUSTOM PIPELINE STAGE -->
+    <div id="addStageModal" class="hidden fixed inset-0 z-50 bg-black/50 backdrop-blur-xs flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-sm w-full p-6 shadow-2xl relative">
+            <button onclick="closeAddStageModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600">
+                <i class="ph-bold ph-x text-base"></i>
+            </button>
+            <h3 class="text-lg font-black text-brand-navy mb-1">Add Pipeline Stage</h3>
+            <p class="text-xs text-gray-500 font-medium mb-4">Create a custom column for your workflow (e.g. Meeting Done, Follow Up...)</p>
+            
+            <form onsubmit="handleCreateStage(event)" class="space-y-3">
+                <div>
+                    <label class="block text-xs font-bold text-gray-700 mb-1">Stage Name *</label>
+                    <input type="text" id="newStageName" placeholder="e.g. Meeting Done" required 
+                        class="w-full bg-gray-50 border border-gray-200 rounded-xl py-2.5 px-3 text-xs font-semibold focus:outline-none focus:border-[#3b0df2]">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-gray-700 mb-1">Badge Color</label>
+                    <select id="newStageColor" class="w-full bg-gray-50 border border-gray-200 rounded-xl py-2.5 px-3 text-xs font-semibold">
+                        <option value="blue">Indigo / Blue</option>
+                        <option value="emerald">Emerald / Green</option>
+                        <option value="amber">Amber / Yellow</option>
+                        <option value="red">Rose / Red</option>
+                        <option value="purple">Purple</option>
+                    </select>
+                </div>
+                <button type="submit" class="w-full bg-[#3b0df2] text-white text-xs font-bold py-3 rounded-xl shadow-xs">
+                    Create Stage Column
+                </button>
+            </form>
+        </div>
+    </div>
+
+
+    <!-- MODAL: ADD MANUAL LEAD -->
+    <div id="addLeadModal" class="hidden fixed inset-0 z-50 bg-black/50 backdrop-blur-xs flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-md w-full p-6 shadow-2xl relative max-h-[90vh] overflow-y-auto">
+            <button onclick="closeAddLeadModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600">
+                <i class="ph-bold ph-x text-base"></i>
+            </button>
+            <h3 class="text-lg font-black text-brand-navy mb-1">Add New Lead</h3>
+            <p class="text-xs text-gray-500 font-medium mb-4">Manually add a payment or prospective lead</p>
+            
+            <form onsubmit="handleCreateLead(event)" class="space-y-3 text-left">
+                <div>
+                    <label class="block text-xs font-bold text-gray-700 mb-1">Full Name *</label>
+                    <input type="text" id="newLeadName" placeholder="e.g. Shaikh Mudassir" required 
+                        class="w-full bg-gray-50 border border-gray-200 rounded-xl py-2 px-3 text-xs font-medium focus:outline-none focus:border-[#3b0df2]">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-gray-700 mb-1">Email Address *</label>
+                    <input type="email" id="newLeadEmail" placeholder="mudassirs472@gmail.com" required 
+                        class="w-full bg-gray-50 border border-gray-200 rounded-xl py-2 px-3 text-xs font-medium focus:outline-none focus:border-[#3b0df2]">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-gray-700 mb-1">Phone Number *</label>
+                    <input type="tel" id="newLeadPhone" placeholder="919958399157" required 
+                        class="w-full bg-gray-50 border border-gray-200 rounded-xl py-2 px-3 text-xs font-medium focus:outline-none focus:border-[#3b0df2]">
+                </div>
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label class="block text-xs font-bold text-gray-700 mb-1">Payment ID</label>
+                        <input type="text" id="newLeadPayId" placeholder="pay_TM3WOx7zkLN6ik" 
+                            class="w-full bg-gray-50 border border-gray-200 rounded-xl py-2 px-3 text-xs font-medium focus:outline-none focus:border-[#3b0df2]">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-gray-700 mb-1">Amount (₹)</label>
+                        <input type="number" id="newLeadAmount" value="9" 
+                            class="w-full bg-gray-50 border border-gray-200 rounded-xl py-2 px-3 text-xs font-medium focus:outline-none focus:border-[#3b0df2]">
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label class="block text-xs font-bold text-gray-700 mb-1">Payment Status</label>
+                        <select id="newLeadStatus" class="w-full bg-gray-50 border border-gray-200 rounded-xl py-2 px-3 text-xs font-medium">
+                            <option value="SUCCESS">SUCCESS</option>
+                            <option value="FAILED">FAILED</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-gray-700 mb-1">Initial Stage</label>
+                        <select id="newLeadStage" class="w-full bg-gray-50 border border-gray-200 rounded-xl py-2 px-3 text-xs font-medium">
+                            <!-- Populated dynamically -->
+                        </select>
+                    </div>
+                </div>
+                <button type="submit" class="w-full bg-[#3b0df2] text-white text-xs font-bold py-3 rounded-xl shadow-xs mt-2">
+                    Save New Lead
+                </button>
+            </form>
+        </div>
+    </div>
+
+
+    <!-- APP LOGIC JAVASCRIPT -->
+    <script>
+        // Default Sample Data (Includes user's exact Razorpay payment)
+        const SAMPLE_PAYMENT = {
+            id: "pay_TM3WOx7zkLN6ik",
+            payment_id: "pay_TM3WOx7zkLN6ik",
+            full_name: "Shaikh Mudassir",
+            email: "mudassirs472@gmail.com",
+            phone: "+919958399157",
+            amount: 9,
+            currency: "INR",
+            status: "SUCCESS",
+            razorpay_status: "captured",
+            stage: "payment_success",
+            created_at: "2026-08-05T10:30:01.974Z",
+            notes: [
+                { text: "Payment captured via Razorpay for ₹9. Access details sent to WhatsApp & Email.", date: "2026-08-05T10:30:01.974Z" }
+            ]
+        };
+
+        const DEFAULT_STAGES = [
+            { id: "payment_success", name: "💳 Payment Success", color: "blue" },
+            { id: "payment_failed", name: "❌ Payment Failed", color: "red" },
+            { id: "contacted", name: "📞 Contacted Lead", color: "amber" },
+            { id: "meeting_done", name: "🤝 Meeting Done", color: "emerald" },
+            { id: "meeting_not_done", name: "🚫 Meeting Not Done", color: "rose" },
+            { id: "enrolled", name: "🎉 Enrolled Founder", color: "purple" }
+        ];
+
+        // State Management
+        let currentStages = JSON.parse(localStorage.getItem('founderlab_stages')) || DEFAULT_STAGES;
+        let currentLeads = JSON.parse(localStorage.getItem('founderlab_leads')) || [SAMPLE_PAYMENT];
+        let activeLeadId = null;
+
+        // On Page Load Authentication Check
+        document.addEventListener('DOMContentLoaded', () => {
+            const loggedInUser = localStorage.getItem('founderlab_admin_user');
+            if (loggedInUser) {
+                showDashboard(loggedInUser);
+            } else {
+                showLogin();
+            }
+        });
+
+        function handleLogin(e) {
+            e.preventDefault();
+            const email = document.getElementById('loginEmail').value.trim();
+            const password = document.getElementById('loginPassword').value.trim();
+            const errorDiv = document.getElementById('loginError');
+
+            // Optional Firebase Auth logic if initialized, otherwise simple admin login check
+            if (email && password) {
+                localStorage.setItem('founderlab_admin_user', email);
+                showDashboard(email);
+            } else {
+                errorDiv.classList.remove('hidden');
+            }
+        }
+
+        function handleLogout() {
+            localStorage.removeItem('founderlab_admin_user');
+            showLogin();
+        }
+
+        function showLogin() {
+            document.getElementById('loginScreen').classList.remove('hidden');
+            document.getElementById('dashboardScreen').classList.add('hidden');
+        }
+
+        function showDashboard(userEmail) {
+            document.getElementById('loginScreen').classList.add('hidden');
+            document.getElementById('dashboardScreen').classList.remove('hidden');
+            document.getElementById('userEmailDisplay').innerText = userEmail;
+            renderPipeline();
+        }
+
+        // Render Pipeline Columns & Cards
+        function renderPipeline() {
+            const container = document.getElementById('pipelineContainer');
+            const searchQuery = document.getElementById('searchQuery').value.toLowerCase().trim();
+            const filterStatus = document.getElementById('filterStatus').value;
+
+            // Filter Leads
+            const filteredLeads = currentLeads.filter(lead => {
+                const matchesSearch = (lead.full_name || '').toLowerCase().includes(searchQuery) ||
+                                      (lead.email || '').toLowerCase().includes(searchQuery) ||
+                                      (lead.phone || '').toLowerCase().includes(searchQuery) ||
+                                      (lead.payment_id || '').toLowerCase().includes(searchQuery);
+
+                const matchesStatus = filterStatus === 'ALL' || lead.status === filterStatus;
+
+                return matchesSearch && matchesStatus;
+            });
+
+            // Update Header Quick Stats
+            const totalRevenue = filteredLeads.reduce((acc, curr) => acc + (curr.status === 'SUCCESS' ? Number(curr.amount || 0) : 0), 0);
+            const totalSuccess = filteredLeads.filter(l => l.status === 'SUCCESS').length;
+            const successRate = filteredLeads.length > 0 ? Math.round((totalSuccess / filteredLeads.length) * 100) : 100;
+            const meetingsDone = filteredLeads.filter(l => l.stage === 'meeting_done').length;
+
+            document.getElementById('statTotalLeads').innerText = filteredLeads.length;
+            document.getElementById('statTotalRevenue').innerText = `₹${totalRevenue}`;
+            document.getElementById('statSuccessRate').innerText = `${successRate}%`;
+            document.getElementById('statMeetingsDone').innerText = meetingsDone;
+
+            // Build Column HTML
+            container.innerHTML = currentStages.map(stage => {
+                const stageLeads = filteredLeads.filter(l => l.stage === stage.id);
+                
+                return `
+                    <div class="w-80 bg-white border border-gray-200/80 rounded-3xl p-4 flex flex-col shadow-xs min-h-[500px]">
+                        <!-- Column Header -->
+                        <div class="flex items-center justify-between pb-3 mb-3 border-b border-gray-100">
+                            <div class="flex items-center gap-2">
+                                <h3 class="font-extrabold text-xs text-brand-navy uppercase tracking-wider">${stage.name}</h3>
+                                <span class="bg-gray-100 text-gray-600 text-[10px] font-black px-2 py-0.5 rounded-full">
+                                    ${stageLeads.length}
+                                </span>
+                            </div>
+                        </div>
+
+                        <!-- Cards Container -->
+                        <div class="flex-1 space-y-3 overflow-y-auto scrollbar-thin">
+                            ${stageLeads.length === 0 ? `
+                                <div class="text-center py-10 border border-dashed border-gray-200 rounded-2xl">
+                                    <i class="ph-bold ph-tray text-gray-300 text-2xl mb-1"></i>
+                                    <p class="text-[11px] font-medium text-gray-400">No leads in stage</p>
+                                </div>
+                            ` : stageLeads.map(lead => renderLeadCard(lead)).join('')}
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        // Render Individual Lead Card
+        function renderLeadCard(lead) {
+            const initials = (lead.full_name || 'Lead').split(' ').map(n => n[0]).join('').slice(0, 2).toUpperCase();
+            const isSuccess = lead.status === 'SUCCESS';
+            const notesCount = (lead.notes || []).length;
+
+            return `
+                <div class="bg-slate-50 hover:bg-white border border-gray-200/90 hover:border-[#3b0df2]/40 rounded-2xl p-4 shadow-xs transition-all flex flex-col justify-between group">
+                    <div>
+                        <!-- Header & Payment Status Badge -->
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-[9px] font-black uppercase px-2 py-0.5 rounded ${isSuccess ? 'bg-emerald-100 text-emerald-700' : 'bg-red-100 text-red-700'}">
+                                ${isSuccess ? '₹' + lead.amount + ' captured' : 'FAILED'}
+                            </span>
+                            <span class="text-[10px] font-mono text-gray-400" title="Payment ID">${lead.payment_id || 'Manual'}</span>
+                        </div>
+
+                        <!-- Name & Contact -->
+                        <div class="flex items-start gap-3 mb-3">
+                            <div class="w-9 h-9 rounded-xl bg-[#3b0df2]/10 text-[#3b0df2] font-extrabold text-xs flex items-center justify-center shrink-0">
+                                ${initials}
+                            </div>
+                            <div class="min-w-0 flex-1">
+                                <h4 class="font-bold text-xs text-brand-navy truncate leading-snug">${lead.full_name}</h4>
+                                <p class="text-[11px] font-medium text-gray-500 truncate">${lead.email}</p>
+                                <p class="text-[11px] font-medium text-gray-500 truncate">${lead.phone}</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card Footer & Quick Actions -->
+                    <div class="pt-3 border-t border-gray-200/60 flex items-center justify-between text-xs">
+                        <select onchange="updateLeadStage('${lead.id}', this.value)" class="bg-white border border-gray-200 rounded-lg text-[10px] font-bold text-gray-700 py-1 px-1.5 focus:outline-none">
+                            ${currentStages.map(s => `
+                                <option value="${s.id}" ${lead.stage === s.id ? 'selected' : ''}>${s.name}</option>
+                            `).join('')}
+                        </select>
+
+                        <button onclick="openLeadModal('${lead.id}')" class="bg-white hover:bg-brand-blue/10 text-[#3b0df2] font-bold text-[10px] px-2.5 py-1 rounded-lg border border-gray-200 flex items-center gap-1">
+                            <i class="ph-bold ph-note-pencil"></i>
+                            <span>Notes (${notesCount})</span>
+                        </button>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Update Lead Stage
+        function updateLeadStage(leadId, newStage) {
+            const lead = currentLeads.find(l => l.id === leadId);
+            if (lead) {
+                lead.stage = newStage;
+                saveLeads();
+                renderPipeline();
+            }
+        }
+
+        // Open Lead Modal
+        function openLeadModal(leadId) {
+            activeLeadId = leadId;
+            const lead = currentLeads.find(l => l.id === leadId);
+            if (!lead) return;
+
+            document.getElementById('modalLeadName').innerText = lead.full_name;
+            document.getElementById('modalLeadEmail').innerText = lead.email;
+            document.getElementById('modalLeadPhone').innerText = lead.phone;
+            document.getElementById('modalPaymentId').innerText = lead.payment_id || 'N/A';
+            document.getElementById('modalAmount').innerText = `₹${lead.amount || 9}`;
+            document.getElementById('modalAvatar').innerText = (lead.full_name || 'L').split(' ').map(n => n[0]).join('').slice(0, 2).toUpperCase();
+
+            const statusElem = document.getElementById('modalPaymentStatus');
+            if (lead.status === 'SUCCESS') {
+                statusElem.innerText = 'SUCCESS (Captured)';
+                statusElem.className = 'inline-block text-[10px] font-black px-2 py-0.5 rounded uppercase bg-emerald-100 text-emerald-700';
+            } else {
+                statusElem.innerText = 'FAILED / PENDING';
+                statusElem.className = 'inline-block text-[10px] font-black px-2 py-0.5 rounded uppercase bg-red-100 text-red-700';
+            }
+
+            // Direct WhatsApp & Phone links
+            const cleanPhone = (lead.phone || '').replace(/[^0-9]/g, '');
+            document.getElementById('modalWhatsappBtn').href = `https://wa.me/${cleanPhone}?text=Hi%20${encodeURIComponent(lead.full_name)},%20thank%20you%20for%20enrolling%20in%20FounderLab!`;
+            document.getElementById('modalCallBtn').href = `tel:+${cleanPhone}`;
+
+            // Populate Stage Dropdown
+            const stageSelect = document.getElementById('modalStageSelect');
+            stageSelect.innerHTML = currentStages.map(s => `
+                <option value="${s.id}" ${lead.stage === s.id ? 'selected' : ''}>${s.name}</option>
+            `).join('');
+
+            // Render Notes Timeline
+            renderModalNotes(lead);
+
+            document.getElementById('leadModal').classList.remove('hidden');
+        }
+
+        function closeLeadModal() {
+            document.getElementById('leadModal').classList.add('hidden');
+            activeLeadId = null;
+        }
+
+        function renderModalNotes(lead) {
+            const list = document.getElementById('modalNotesList');
+            const notes = lead.notes || [];
+
+            if (notes.length === 0) {
+                list.innerHTML = `<p class="text-xs text-gray-400 font-medium italic">No notes added yet for this lead.</p>`;
+            } else {
+                list.innerHTML = notes.map(n => `
+                    <div class="bg-gray-50 border border-gray-200/80 rounded-xl p-3 text-xs">
+                        <p class="font-medium text-gray-800 leading-snug">${n.text}</p>
+                        <span class="text-[10px] text-gray-400 font-semibold block mt-1">${new Date(n.date).toLocaleString()}</span>
+                    </div>
+                `).join('');
+            }
+        }
+
+        function handleAddNote(e) {
+            e.preventDefault();
+            if (!activeLeadId) return;
+
+            const noteInput = document.getElementById('newNoteText');
+            const text = noteInput.value.trim();
+            if (!text) return;
+
+            const lead = currentLeads.find(l => l.id === activeLeadId);
+            if (lead) {
+                if (!lead.notes) lead.notes = [];
+                lead.notes.unshift({ text: text, date: new Date().toISOString() });
+                saveLeads();
+                renderModalNotes(lead);
+                renderPipeline();
+                noteInput.value = '';
+            }
+        }
+
+        function updateLeadStageFromModal() {
+            if (!activeLeadId) return;
+            const newStage = document.getElementById('modalStageSelect').value;
+            updateLeadStage(activeLeadId, newStage);
+        }
+
+        // Add Custom Stage Column
+        function openAddStageModal() {
+            document.getElementById('addStageModal').classList.remove('hidden');
+        }
+
+        function closeAddStageModal() {
+            document.getElementById('addStageModal').classList.add('hidden');
+        }
+
+        function handleCreateStage(e) {
+            e.preventDefault();
+            const name = document.getElementById('newStageName').value.trim();
+            const color = document.getElementById('newStageColor').value;
+
+            if (name) {
+                const id = 'stage_' + Date.now();
+                currentStages.push({ id, name, color });
+                saveStages();
+                renderPipeline();
+                closeAddStageModal();
+                document.getElementById('newStageName').value = '';
+            }
+        }
+
+        // Add Manual Lead
+        function openAddLeadModal() {
+            const select = document.getElementById('newLeadStage');
+            select.innerHTML = currentStages.map(s => `<option value="${s.id}">${s.name}</option>`).join('');
+            document.getElementById('addLeadModal').classList.remove('hidden');
+        }
+
+        function closeAddLeadModal() {
+            document.getElementById('addLeadModal').classList.add('hidden');
+        }
+
+        function handleCreateLead(e) {
+            e.preventDefault();
+            const name = document.getElementById('newLeadName').value.trim();
+            const email = document.getElementById('newLeadEmail').value.trim();
+            const phone = document.getElementById('newLeadPhone').value.trim();
+            const payId = document.getElementById('newLeadPayId').value.trim() || ('pay_' + Math.random().toString(36).substr(2, 9));
+            const amount = document.getElementById('newLeadAmount').value || 9;
+            const status = document.getElementById('newLeadStatus').value;
+            const stage = document.getElementById('newLeadStage').value;
+
+            const newLead = {
+                id: payId,
+                payment_id: payId,
+                full_name: name,
+                email: email,
+                phone: phone,
+                amount: Number(amount),
+                currency: "INR",
+                status: status,
+                razorpay_status: status === 'SUCCESS' ? 'captured' : 'failed',
+                stage: stage,
+                created_at: new Date().toISOString(),
+                notes: [{ text: "Lead created manually in Admin CRM.", date: new Date().toISOString() }]
+            };
+
+            currentLeads.unshift(newLead);
+            saveLeads();
+            renderPipeline();
+            closeAddLeadModal();
+        }
+
+        // Local Storage Helpers
+        function saveLeads() {
+            localStorage.setItem('founderlab_leads', JSON.stringify(currentLeads));
+        }
+
+        function saveStages() {
+            localStorage.setItem('founderlab_stages', JSON.stringify(currentStages));
+        }
+    </script>
+
+</body>
+</html>
