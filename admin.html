@@ -641,7 +641,10 @@
 
             // Build Column HTML
             container.innerHTML = currentStages.map(stage => {
-                const stageLeads = filteredLeads.filter(l => l.stage === stage.id);
+                // Sort leads in column by NEWEST date first
+                const stageLeads = filteredLeads
+                    .filter(l => l.stage === stage.id)
+                    .sort((a, b) => new Date(b.created_at || 0) - new Date(a.created_at || 0));
                 
                 return `
                     <div class="w-[84vw] sm:w-80 snap-center shrink-0 bg-white border border-gray-200/80 rounded-3xl p-4 flex flex-col shadow-xs min-h-[460px] max-h-[75vh]">
@@ -662,32 +665,42 @@
                                     <i class="ph-bold ph-tray text-gray-300 text-2xl mb-1"></i>
                                     <p class="text-[11px] font-medium text-gray-400">No leads in stage</p>
                                 </div>
-                            ` : stageLeads.map(lead => renderLeadCard(lead)).join('')}
+                            ` : stageLeads.map((lead, idx) => renderLeadCard(lead, idx === 0)).join('')}
                         </div>
                     </div>
                 `;
             }).join('');
         }
 
-        // Render Individual Lead Card
-        function renderLeadCard(lead) {
+        // Render Individual Lead Card (Highlighting Latest Payment at Top)
+        function renderLeadCard(lead, isTopLatest) {
             const initials = (lead.full_name || 'Lead').split(' ').map(n => n[0]).join('').slice(0, 2).toUpperCase();
             const isSuccess = lead.status === 'SUCCESS';
             const notesCount = (lead.notes || []).length;
+            const createdDate = lead.created_at ? new Date(lead.created_at) : new Date();
+            const formattedTime = createdDate.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+            const formattedDate = createdDate.toLocaleDateString([], { month: 'short', day: 'numeric' });
 
             return `
-                <div class="bg-slate-50 hover:bg-white border border-gray-200/90 hover:border-[#3b0df2]/40 rounded-2xl p-4 shadow-xs transition-all flex flex-col justify-between group">
+                <div class="bg-slate-50 hover:bg-white border ${isTopLatest ? 'border-[#3b0df2]/50 shadow-md ring-1 ring-[#3b0df2]/20' : 'border-gray-200/90'} hover:border-[#3b0df2]/40 rounded-2xl p-4 shadow-xs transition-all flex flex-col justify-between group">
                     <div>
-                        <!-- Header & Payment Status Badge -->
+                        <!-- Header & Payment Status Badge + LATEST Indicator -->
                         <div class="flex items-center justify-between mb-2">
-                            <span class="text-[9px] font-black uppercase px-2 py-0.5 rounded ${isSuccess ? 'bg-emerald-100 text-emerald-700' : 'bg-red-100 text-red-700'}">
-                                ${isSuccess ? '₹' + lead.amount + ' captured' : 'FAILED'}
-                            </span>
+                            <div class="flex items-center gap-1.5">
+                                <span class="text-[9px] font-black uppercase px-2 py-0.5 rounded ${isSuccess ? 'bg-emerald-100 text-emerald-700' : 'bg-red-100 text-red-700'}">
+                                    ${isSuccess ? '₹' + lead.amount + ' captured' : 'FAILED'}
+                                </span>
+                                ${isTopLatest ? `
+                                    <span class="bg-amber-100 text-amber-800 border border-amber-300/80 text-[8px] font-black px-1.5 py-0.5 rounded uppercase tracking-wider flex items-center gap-1">
+                                        <span class="w-1.5 h-1.5 rounded-full bg-amber-500 animate-ping"></span> LATEST
+                                    </span>
+                                ` : ''}
+                            </div>
                             <span class="text-[10px] font-mono text-gray-400" title="Payment ID">${lead.payment_id || 'Manual'}</span>
                         </div>
 
                         <!-- Name & Contact -->
-                        <div class="flex items-start gap-3 mb-3">
+                        <div class="flex items-start gap-3 mb-2">
                             <div class="w-9 h-9 rounded-xl bg-[#3b0df2]/10 text-[#3b0df2] font-extrabold text-xs flex items-center justify-center shrink-0">
                                 ${initials}
                             </div>
@@ -696,6 +709,12 @@
                                 <p class="text-[11px] font-medium text-gray-500 truncate">${lead.email}</p>
                                 <p class="text-[11px] font-medium text-gray-500 truncate">${lead.phone}</p>
                             </div>
+                        </div>
+
+                        <!-- Timestamp -->
+                        <div class="text-[10px] text-gray-400 font-semibold mb-3 flex items-center gap-1">
+                            <i class="ph-bold ph-clock text-xs text-[#3b0df2]"></i>
+                            <span>${formattedDate}, ${formattedTime}</span>
                         </div>
                     </div>
 
