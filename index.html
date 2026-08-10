@@ -180,31 +180,57 @@
                     <span class="flex items-center gap-1"><i class="ph-fill ph-whatsapp-logo text-tfl-green text-xs"></i> Instant Access</span>
                 </div>
 
-                <!-- Compact Countdown Timer Chip -->
-                <div class="w-full max-w-xs sm:max-w-md bg-white/5 border border-white/10 rounded-xl p-2 text-center backdrop-blur-md">
-                    <div class="flex items-center justify-center gap-1 text-tfl-red text-[10px] font-black uppercase mb-1">
-                        <i class="ph-fill ph-clock animate-pulse"></i>
-                        <span>SEATS CLOSING IN:</span>
+                <!-- High-Impact Live Seats & Countdown Urgency Dashboard Widget -->
+                <div class="w-full max-w-sm sm:max-w-xl bg-tfl-deepNavy/90 border-2 border-tfl-gold/60 rounded-2xl sm:rounded-3xl p-3.5 sm:p-5 text-center backdrop-blur-xl shadow-navy-glow relative overflow-hidden mt-3">
+                    
+                    <!-- Top Dynamic Progress & Status Header -->
+                    <div class="flex items-center justify-between gap-2 mb-2 sm:mb-3 pb-2 border-b border-white/10">
+                        <div class="flex items-center gap-1.5 text-tfl-red font-black text-[10px] sm:text-xs uppercase tracking-wider">
+                            <span class="relative flex h-2.5 w-2.5">
+                                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-tfl-red opacity-75"></span>
+                                <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-tfl-red"></span>
+                            </span>
+                            <span>SEATS CLOSING IN...</span>
+                        </div>
+                        
+                        <div class="bg-tfl-red/20 border border-tfl-red/40 text-tfl-yellow font-extrabold text-[9px] sm:text-[11px] px-2.5 py-0.5 rounded-full uppercase flex items-center gap-1">
+                            <i class="ph-bold ph-flame text-tfl-orange"></i> 27 SLOTS LEFT
+                        </div>
                     </div>
 
-                    <div class="grid grid-cols-4 gap-1.5 mb-1">
-                        <div class="bg-tfl-deepNavy rounded-lg p-1 text-center border border-tfl-gold/30">
-                            <span id="timerDays" class="text-sm sm:text-lg font-display font-black block text-white leading-none">04</span>
-                            <span class="text-[7px] text-tfl-goldLight font-bold uppercase">Days</span>
+                    <!-- Batch Progress Fill Bar -->
+                    <div class="w-full bg-white/10 rounded-full h-2.5 sm:h-3 mb-3 overflow-hidden p-0.5 border border-white/15">
+                        <div class="bg-gradient-to-r from-tfl-orange via-tfl-yellow to-tfl-red h-full rounded-full w-[88%] animate-pulse"></div>
+                    </div>
+
+                    <!-- Deluxe Digital Flip Clock Timer Grid -->
+                    <div class="grid grid-cols-4 gap-2 sm:gap-3 mb-3">
+                        <div class="bg-gradient-to-b from-[#131B38] to-[#091024] rounded-xl p-2 text-center border-2 border-tfl-gold/40 shadow-inner">
+                            <span id="timerDays" class="text-xl sm:text-3xl font-display font-black block text-tfl-yellow leading-none tracking-tight">04</span>
+                            <span class="text-[8px] sm:text-[10px] text-tfl-goldLight font-extrabold uppercase mt-1 block">DAYS</span>
                         </div>
-                        <div class="bg-tfl-deepNavy rounded-lg p-1 text-center border border-tfl-gold/30">
-                            <span id="timerHours" class="text-sm sm:text-lg font-display font-black block text-white leading-none">90</span>
-                            <span class="text-[7px] text-tfl-goldLight font-bold uppercase">Hours</span>
+                        <div class="bg-gradient-to-b from-[#131B38] to-[#091024] rounded-xl p-2 text-center border-2 border-tfl-gold/40 shadow-inner">
+                            <span id="timerHours" class="text-xl sm:text-3xl font-display font-black block text-tfl-yellow leading-none tracking-tight">90</span>
+                            <span class="text-[8px] sm:text-[10px] text-tfl-goldLight font-extrabold uppercase mt-1 block">HOURS</span>
                         </div>
-                        <div class="bg-tfl-deepNavy rounded-lg p-1 text-center border border-tfl-gold/30">
-                            <span id="timerMinutes" class="text-sm sm:text-lg font-display font-black block text-white leading-none">00</span>
-                            <span class="text-[7px] text-tfl-goldLight font-bold uppercase">Mins</span>
+                        <div class="bg-gradient-to-b from-[#131B38] to-[#091024] rounded-xl p-2 text-center border-2 border-tfl-gold/40 shadow-inner">
+                            <span id="timerMinutes" class="text-xl sm:text-3xl font-display font-black block text-tfl-yellow leading-none tracking-tight">00</span>
+                            <span class="text-[8px] sm:text-[10px] text-tfl-goldLight font-extrabold uppercase mt-1 block">MINUTES</span>
                         </div>
-                        <div class="bg-tfl-deepNavy rounded-lg p-1 text-center border border-tfl-gold/30">
-                            <span id="timerSeconds" class="text-sm sm:text-lg font-display font-black block text-white leading-none">00</span>
-                            <span class="text-[7px] text-tfl-goldLight font-bold uppercase">Secs</span>
+                        <div class="bg-gradient-to-b from-[#131B38] to-[#091024] rounded-xl p-2 text-center border-2 border-tfl-gold/40 shadow-inner">
+                            <span id="timerSeconds" class="text-xl sm:text-3xl font-display font-black block text-tfl-yellow leading-none tracking-tight">00</span>
+                            <span class="text-[8px] sm:text-[10px] text-tfl-goldLight font-extrabold uppercase mt-1 block">SECONDS</span>
                         </div>
                     </div>
+
+                    <!-- Webinar Date Announcement -->
+                    <div class="bg-white/5 rounded-xl py-1.5 px-3 border border-white/10 flex flex-wrap items-center justify-between gap-1 text-[10px] sm:text-xs">
+                        <span class="text-slate-300 font-semibold flex items-center gap-1">
+                            <i class="ph-bold ph-calendar-blank text-tfl-gold"></i> Live Webinar Starts:
+                        </span>
+                        <span class="text-tfl-yellow font-black uppercase">07.00 PM SHARP ON 14.08.2026</span>
+                    </div>
+
                 </div>
 
             </div>
