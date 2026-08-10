@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Founder Discovery Workshop</title>
+    <title>Founder SPARK Orientation | Founder Global Institute & The Founders Lab</title>
+    <meta name="description" content="Start earning before you graduate. Join the 90-minute Founder SPARK Orientation for just ₹9. Ecosystem support by The Founders Lab.">
 
     <!-- Meta Pixel Code -->
     <script>
@@ -24,32 +25,39 @@
     </noscript>
     <!-- End Meta Pixel Code -->
 
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700;800&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     fontFamily: {
-                        poppins: ['Poppins', 'sans-serif'],
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        display: ['Space Grotesk', 'sans-serif'],
                     },
                     colors: {
-                        brand: {
-                            blue: '#2B64F5',  /* Exact Bright Tech Blue from screenshot */
-                            navy: '#0A1128',  /* Exact Deep Navy from screenshot */
-                            dark: '#050914',  /* Extra Dark for contrasts */
-                            light: '#F4F8FF', /* Soft blue tinted white */
-                            yellow: '#FFD700' /* Professional Gold/Yellow accent */
+                        tfl: {
+                            navy: '#1B2040',
+                            deepNavy: '#091024',
+                            green: '#00A859',
+                            yellow: '#FFC20E',
+                            red: '#ED1C24',
+                            orange: '#F58220',
+                            cyan: '#00AEEF',
+                            gold: '#D4AF37',
+                            goldLight: '#F5E6B3',
+                            lightBg: '#F8FAFC',
                         }
                     },
                     boxShadow: {
-                        'glow': '0 8px 30px -8px rgba(43, 100, 245, 0.5)',
-                        'glow-hover': '0 12px 40px -8px rgba(43, 100, 245, 0.7)',
-                        'card': '0 15px 35px -10px rgba(10, 17, 40, 0.08)',
-                        'card-dark': '0 15px 35px -10px rgba(0, 0, 0, 0.5)',
+                        'premium': '0 20px 40px -15px rgba(27, 32, 64, 0.12)',
+                        'gold-glow': '0 10px 30px -5px rgba(212, 175, 55, 0.35)',
+                        'cta-glow': '0 10px 30px -5px rgba(245, 130, 32, 0.55)',
+                        'navy-glow': '0 20px 50px -10px rgba(9, 16, 36, 0.4)'
                     }
                 }
             }
@@ -57,701 +65,698 @@
     </script>
     <style>
         body {
-            background-color: #F9FAFC;
+            background-color: #F8FAFC;
+            color: #0F172A;
             -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
         }
-        .mobile-wrapper::-webkit-scrollbar {
+        .hero-gradient {
+            background: radial-gradient(circle at 50% 0%, #1B2040 0%, #091024 100%);
+        }
+        details summary::-webkit-details-marker {
             display: none;
-        }
-        .mobile-wrapper {
-            -ms-overflow-style: none;
-            scrollbar-width: none;
-        }
-        /* Custom dotted background for the dark price card */
-        .bg-dots {
-            background-image: radial-gradient(rgba(43, 100, 245, 0.2) 1px, transparent 1px);
-            background-size: 16px 16px;
         }
     </style>
 </head>
-<body class="w-full flex justify-center min-h-screen selection:bg-brand-blue selection:text-white overflow-x-hidden">
+<body class="w-full flex justify-center min-h-screen selection:bg-tfl-orange selection:text-white font-sans antialiased overflow-x-hidden">
 
-    <main class="w-full bg-white relative overflow-hidden font-poppins text-gray-800 shadow-2xl">
+    <main class="w-full bg-white relative overflow-hidden text-slate-800 shadow-2xl">
         
-        <!-- Top Bar -->
-        <div class="bg-brand-navy text-white text-[9px] sm:text-xs md:text-sm font-semibold py-1.5 sm:py-2.5 px-2 text-center flex items-center justify-center gap-1.5 sm:gap-2 uppercase tracking-widest w-full border-b border-brand-blue/20">
-            <i class="ph-fill ph-star text-brand-yellow text-[10px] sm:text-sm"></i>
-            1000+ PROFESSIONALS ALREADY ENROLLED IN THIS WEBINAR
-            <i class="ph-fill ph-star text-brand-yellow text-[10px] sm:text-sm"></i>
+        <!-- Top Announcement Bar -->
+        <div class="bg-tfl-deepNavy text-white text-[10px] sm:text-xs font-semibold py-1.5 px-3 text-center flex items-center justify-center gap-2 tracking-wide border-b border-tfl-gold/20">
+            <span class="inline-flex items-center gap-1 text-tfl-yellow font-black">
+                <i class="ph-fill ph-fire text-tfl-orange text-xs sm:text-sm animate-pulse"></i>
+                LAST 27 SLOTS LEFT FOR THIS BATCH
+            </span>
+            <span class="hidden sm:inline text-slate-600">•</span>
+            <span class="hidden sm:inline text-slate-300 font-medium">WEBINAR STARTS AT 07.00 PM SHARP ON 14.08.2026</span>
         </div>
 
-        <!-- NEW Hero Section (High-Trust & High-Converting Mobile Layout) -->
-        <div class="relative py-4 sm:py-16 px-4 sm:px-5 overflow-hidden bg-gradient-to-br from-white via-white to-brand-light/60">
+        <!-- HERO SECTION (COMPACT CREATIVE LAYOUT - FULLY OPTIMIZED FOR MOBILE VIEWPORT HEIGHT) -->
+        <div class="relative hero-gradient text-white py-3 sm:py-8 px-3 sm:px-8 border-b border-tfl-gold/30 min-h-[92dvh] sm:min-h-0 flex flex-col justify-between">
             
-            <!-- Subtle background glow -->
-            <div class="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-brand-light rounded-full blur-[100px] pointer-events-none"></div>
-            <div class="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-brand-light rounded-full blur-[100px] pointer-events-none"></div>
+            <!-- Ambient Glow -->
+            <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-tfl-orange/10 rounded-full blur-[120px] pointer-events-none"></div>
 
-            <div class="max-w-5xl mx-auto relative z-10 flex flex-col items-center text-center">
+            <div class="max-w-4xl mx-auto relative z-10 w-full flex flex-col items-center text-center">
 
-                <!-- FOUNDERS LAB Logo & Live Badge -->
-                <div class="flex items-center justify-between w-full max-w-sm sm:max-w-none mb-3 sm:mb-8">
-                    <h2 class="text-[20px] sm:text-[32px] font-black tracking-tighter text-brand-navy">FOUNDERS <span class="text-[#3b0df2]">LAB</span></h2>
-                    <!-- Live Status Pill -->
-                    <div class="flex items-center gap-1.5 bg-red-500/10 border border-red-500/30 px-2.5 py-1 rounded-full text-red-600 text-[10px] sm:text-xs font-bold uppercase tracking-wider">
-                        <span class="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span> LIVE WEBINAR
+                <!-- Header Dual Logos Bar -->
+                <div class="w-full flex items-center justify-between gap-2 mb-2 sm:mb-4 pb-2 border-b border-white/10">
+                    <div class="flex items-center gap-2 sm:gap-3">
+                        <img src="images/Founders Global Institute.png" alt="FGI Crest" class="h-8 sm:h-12 w-auto object-contain drop-shadow-md">
+                        <div class="h-5 sm:h-7 w-[1px] bg-white/20"></div>
+                        <img src="images/thefounderlabs.jpeg" alt="TFL Logo" class="h-7 sm:h-10 w-auto object-contain rounded bg-white p-0.5">
+                    </div>
+                    <div class="flex items-center gap-1 bg-tfl-red/20 border border-tfl-red/40 px-2 py-0.5 sm:py-1 rounded-full text-tfl-red text-[9px] sm:text-xs font-black uppercase">
+                        <span class="w-1.5 h-1.5 rounded-full bg-tfl-red animate-ping"></span>
+                        <span>LIVE WEBINAR</span>
                     </div>
                 </div>
 
-                <!-- Pre-headline Pill Box -->
-                <div class="flex items-stretch border-[1.5px] border-gray-200 rounded-full overflow-hidden shadow-sm mb-3 sm:mb-6 bg-white w-full sm:w-auto hover:shadow-md transition-shadow max-w-[24rem] sm:max-w-none">
-                    <div class="bg-[#3b0df2] px-3 py-1.5 sm:px-4 sm:py-3 flex items-center justify-center shrink-0">
-                        <i class="ph ph-brain text-[16px] sm:text-[24px] text-white"></i>
-                    </div>
-                    <div class="px-3 py-1.5 sm:px-4 sm:py-3 flex items-center bg-white flex-1 text-left sm:text-center">
-                        <p class="text-[10px] sm:text-[13px] font-semibold text-brand-navy leading-tight sm:leading-snug">
-                            Discover whether you have the mindset to become a <span class="text-[#3b0df2] font-bold">founder, leader, or opportunity creator</span> in the age of AI.
-                        </p>
-                    </div>
+                <!-- Political Chaos Warning Hook Badge -->
+                <div class="inline-flex items-center gap-1.5 bg-tfl-red/20 border border-tfl-red/40 text-tfl-yellow px-3 py-0.5 rounded-full text-[9px] sm:text-xs font-extrabold uppercase tracking-wide mb-2 shadow-xs max-w-full">
+                    <i class="ph-bold ph-warning-circle text-tfl-red text-xs sm:text-sm shrink-0"></i>
+                    <span class="truncate">Enough of NEET PAPER LEAK & CHAOS?</span>
                 </div>
 
-                <!-- Main Headline -->
-                <h1 class="font-extrabold text-[20px] sm:text-5xl lg:text-[56px] leading-tight sm:leading-[1.15] tracking-tight uppercase text-brand-navy mb-3 sm:mb-8 w-full max-w-4xl">
-                    What If The Next <span class="text-[#3b0df2] relative">2 Hours<svg class="absolute w-full h-1.5 -bottom-0.5 left-0 text-[#3b0df2]/30" viewBox="0 0 100 10" preserveAspectRatio="none"><path d="M0 5 Q 50 10 100 5" stroke="currentColor" stroke-width="4" fill="none"/></svg></span><br class="hidden lg:block">
-                    Could Change The Direction<br class="hidden lg:block">
-                    Of Your Next <span class="text-[#3b0df2]">20 Years?</span>
+                <!-- Main Hook Headline -->
+                <h1 class="font-display font-black text-lg sm:text-3xl lg:text-[36px] leading-tight tracking-tight uppercase text-white mb-1 sm:mb-2 max-w-3xl">
+                    Start Earning <span class="text-tfl-yellow underline decoration-tfl-orange decoration-4">JUST BEFORE</span> You Complete Your Graduation & Land A Job!
                 </h1>
 
-                <!-- Video Thumbnail Container -->
-                <div class="relative w-full max-w-[340px] sm:max-w-3xl rounded-2xl sm:rounded-[2rem] overflow-hidden shadow-[0_12px_40px_-10px_rgba(10,17,40,0.25)] group cursor-pointer mb-3 sm:mb-6 border-[4px] sm:border-[6px] border-white bg-[#0A1128]">
-                    <!-- Thumbnail Image -->
-                    <img src="https://raw.githubusercontent.com/infisparks/images/refs/heads/main/founder_lab_thumbnail.png" alt="Workshop Video" class="w-full h-auto object-contain group-hover:scale-[1.03] transition-transform duration-700">
+                <!-- Sub-hook -->
+                <p class="text-[11px] sm:text-sm text-slate-300 font-semibold mb-2 sm:mb-3">
+                    What is the <strong class="text-tfl-gold">“FUTURE PROOF”</strong> way? The future belongs to <strong class="text-white bg-tfl-orange/30 px-1">GAME CHANGERS</strong>.
+                </p>
+
+                <!-- Solution Chip -->
+                <div class="bg-white/5 border border-tfl-gold/40 rounded-xl px-3 py-1.5 mb-3 sm:mb-4 max-w-xl w-full">
+                    <p class="text-[10px] sm:text-xs font-extrabold text-tfl-yellow uppercase tracking-wider">
+                        SOLUTION: “FOUNDER SPARK” ORIENTATION PROGRAM
+                    </p>
+                    <p class="text-[9px] sm:text-[11px] text-slate-300 font-medium">
+                        Build your business along with your studies with structured ecosystem support.
+                    </p>
+                </div>
+
+                <!-- CREATIVE IMAGE CONTAINER (PLACED DIRECTLY ABOVE THE BUTTON!) -->
+                <div class="relative w-full max-w-[320px] sm:max-w-md rounded-xl sm:rounded-2xl overflow-hidden shadow-navy-glow group cursor-pointer border-2 border-tfl-gold/50 bg-tfl-deepNavy mb-3 sm:mb-4">
+                    <img src="https://raw.githubusercontent.com/infisparks/images/refs/heads/main/founder_lab_thumbnail.png" alt="Founder SPARK Orientation" class="w-full h-auto object-contain group-hover:scale-[1.02] transition-transform duration-500">
                     
-                    <!-- Dark Overlay -->
-                    <div class="absolute inset-0 bg-brand-navy/15 group-hover:bg-brand-navy/40 transition-colors duration-300"></div>
+                    <!-- Overlay Gradient -->
+                    <div class="absolute inset-0 bg-tfl-navy/20 group-hover:bg-tfl-navy/40 transition-colors"></div>
                     
-                    <!-- Centered Small Play Button -->
+                    <!-- Play Badge Overlay -->
+                    <div class="absolute top-2 left-2 bg-tfl-deepNavy/80 backdrop-blur-md border border-tfl-gold/40 text-tfl-yellow text-[9px] font-black px-2 py-0.5 rounded-full flex items-center gap-1">
+                        <i class="ph-fill ph-play-circle text-tfl-orange"></i> 90-MIN ORIENTATION
+                    </div>
+
+                    <!-- Glowing Center Play Button -->
                     <div class="absolute inset-0 flex items-center justify-center">
-                        <div class="w-11 h-11 sm:w-20 sm:h-20 bg-[#3b0df2] rounded-full flex items-center justify-center border-[2px] sm:border-[3px] border-white shadow-[0_6px_20px_rgba(59,13,242,0.6)] group-hover:scale-110 transition-transform duration-300 ease-out">
-                            <i class="ph-fill ph-play text-[18px] sm:text-[36px] text-white ml-0.5 sm:ml-1"></i>
+                        <div class="w-10 h-10 sm:w-14 sm:h-14 bg-tfl-orange rounded-full flex items-center justify-center border-2 border-white shadow-cta-glow group-hover:scale-110 transition-transform">
+                            <i class="ph-fill ph-play text-lg sm:text-2xl text-white ml-0.5"></i>
                         </div>
                     </div>
                 </div>
 
-                <!-- Trust Bar under Video: Ratings & Badges -->
-                <div class="flex items-center justify-center gap-3 sm:gap-6 mb-3 sm:mb-6 bg-white/90 border border-gray-100 py-1.5 px-3 sm:py-2 sm:px-6 rounded-full shadow-xs max-w-sm sm:max-w-none">
-                    <!-- Rating Stars -->
-                    <div class="flex items-center gap-1 text-amber-400 text-xs sm:text-base">
-                        <i class="ph-fill ph-star"></i>
-                        <i class="ph-fill ph-star"></i>
-                        <i class="ph-fill ph-star"></i>
-                        <i class="ph-fill ph-star"></i>
-                        <i class="ph-fill ph-star-half"></i>
-                        <span class="text-[11px] sm:text-xs font-bold text-gray-800 ml-1">4.9/5</span>
-                    </div>
-                    <span class="text-gray-300 text-xs">|</span>
-                    <!-- Verified Count -->
-                    <div class="flex items-center gap-1.5 text-[10px] sm:text-xs font-semibold text-gray-600">
-                        <i class="ph-fill ph-seal-check text-blue-600 text-xs sm:text-sm"></i>
-                        <span>1,240+ Enrolled Students</span>
-                    </div>
-                </div>
-
-                <!-- Subtext -->
-                <p class="text-[12px] sm:text-[18px] text-gray-700 font-medium max-w-[48rem] mx-auto leading-snug sm:leading-relaxed mb-3 sm:mb-8 px-2 sm:px-4">
-                    This is not another motivational webinar. This is India's first <span class="font-bold text-[#111827] border-b-[2px] border-[#3b0df2] pb-0.5">Founder Discovery Workshop</span> designed to help students, professionals, and aspiring entrepreneurs unlock their Founder Spark
-                </p>
-
-                <!-- Price with Discount Tag -->
-                <div class="flex items-center justify-center gap-3 sm:gap-6 mb-3 sm:mb-6 w-full">
-                    <span class="line-through decoration-[2px] sm:decoration-[5px] decoration-gray-400/70 text-[#a0aab8] text-[26px] sm:text-[80px] font-black tracking-tighter leading-none relative">
-                        ₹999
-                    </span>
-                    <span class="text-[#3b0df2] text-[32px] sm:text-[80px] font-black tracking-tight uppercase leading-none drop-shadow-sm">
-                        only ₹9
-                    </span>
-                    <span class="bg-emerald-100 text-emerald-700 text-[10px] sm:text-xs font-extrabold px-2 py-0.5 rounded-md uppercase tracking-wider border border-emerald-300">
+                <!-- Price Box -->
+                <div class="flex items-baseline justify-center gap-2 sm:gap-3 mb-2">
+                    <span class="text-slate-400 line-through text-sm sm:text-xl font-bold">₹999</span>
+                    <span class="text-tfl-orange text-2xl sm:text-4xl font-display font-black tracking-tight">₹9 ONLY</span>
+                    <span class="bg-tfl-green/20 text-tfl-green border border-tfl-green/40 text-[9px] sm:text-[10px] font-black px-2 py-0.5 rounded-full uppercase">
                         99% OFF
                     </span>
                 </div>
-                
-                <!-- Full Width CTA Button -->
-                <button onclick="window.open('https://pages.razorpay.com/pl_TM2WSHo1BLrqhx/view', '_blank')" class="w-full max-w-[22rem] sm:max-w-[36rem] mx-auto bg-[#3b0df2] hover:bg-[#2c08c4] text-white rounded-xl sm:rounded-[1.25rem] py-3.5 sm:py-5 px-4 sm:px-6 text-[14px] sm:text-[20px] font-bold shadow-[0_12px_35px_-5px_rgba(59,13,242,0.6)] hover:shadow-[0_15px_50px_-10px_rgba(59,13,242,0.8)] flex items-center justify-center gap-2 transition-all transform hover:-translate-y-1 leading-none mb-2.5 cursor-pointer">
-                    <span>Join the Founder Discovery Workshop</span> <i class="ph-bold ph-arrow-right text-base sm:text-xl shrink-0"></i>
+
+                <!-- MAIN CTA REGISTER BUTTON (PLACED DIRECTLY BELOW THE IMAGE!) -->
+                <button onclick="window.open('https://pages.razorpay.com/pl_TM2WSHo1BLrqhx/view', '_blank')" class="w-full max-w-sm sm:max-w-md bg-tfl-orange hover:bg-orange-600 text-white rounded-xl sm:rounded-2xl py-3 sm:py-4 px-6 text-sm sm:text-lg font-black shadow-cta-glow flex items-center justify-center gap-2 transition-all transform hover:-translate-y-0.5 cursor-pointer mb-2">
+                    <span>REGISTER NOW FOR JUST ₹9</span>
+                    <i class="ph-bold ph-arrow-right text-base sm:text-xl"></i>
                 </button>
 
-                <!-- Guarantee & Security Trust Sub-bar -->
-                <div class="flex items-center justify-center gap-3 sm:gap-6 text-[10px] sm:text-xs text-gray-500 font-medium">
-                    <span class="flex items-center gap-1"><i class="ph-fill ph-shield-check text-emerald-500 text-xs sm:text-sm"></i> 100% Money-Back Guarantee</span>
+                <!-- Guarantee & Security -->
+                <div class="flex items-center justify-center gap-3 text-[9px] sm:text-xs text-slate-400 font-medium mb-3">
+                    <span class="flex items-center gap-1"><i class="ph-fill ph-shield-check text-tfl-green text-xs"></i> 100% Guaranteed</span>
                     <span>•</span>
-                    <span class="flex items-center gap-1"><i class="ph-fill ph-whatsapp-logo text-emerald-500 text-xs sm:text-sm"></i> Instant WhatsApp Link</span>
+                    <span class="flex items-center gap-1"><i class="ph-fill ph-whatsapp-logo text-tfl-green text-xs"></i> Instant Access</span>
+                </div>
+
+                <!-- Compact Countdown Timer Chip -->
+                <div class="w-full max-w-xs sm:max-w-md bg-white/5 border border-white/10 rounded-xl p-2 text-center backdrop-blur-md">
+                    <div class="flex items-center justify-center gap-1 text-tfl-red text-[10px] font-black uppercase mb-1">
+                        <i class="ph-fill ph-clock animate-pulse"></i>
+                        <span>SEATS CLOSING IN:</span>
+                    </div>
+
+                    <div class="grid grid-cols-4 gap-1.5 mb-1">
+                        <div class="bg-tfl-deepNavy rounded-lg p-1 text-center border border-tfl-gold/30">
+                            <span id="timerDays" class="text-sm sm:text-lg font-display font-black block text-white leading-none">04</span>
+                            <span class="text-[7px] text-tfl-goldLight font-bold uppercase">Days</span>
+                        </div>
+                        <div class="bg-tfl-deepNavy rounded-lg p-1 text-center border border-tfl-gold/30">
+                            <span id="timerHours" class="text-sm sm:text-lg font-display font-black block text-white leading-none">90</span>
+                            <span class="text-[7px] text-tfl-goldLight font-bold uppercase">Hours</span>
+                        </div>
+                        <div class="bg-tfl-deepNavy rounded-lg p-1 text-center border border-tfl-gold/30">
+                            <span id="timerMinutes" class="text-sm sm:text-lg font-display font-black block text-white leading-none">00</span>
+                            <span class="text-[7px] text-tfl-goldLight font-bold uppercase">Mins</span>
+                        </div>
+                        <div class="bg-tfl-deepNavy rounded-lg p-1 text-center border border-tfl-gold/30">
+                            <span id="timerSeconds" class="text-sm sm:text-lg font-display font-black block text-white leading-none">00</span>
+                            <span class="text-[7px] text-tfl-goldLight font-bold uppercase">Secs</span>
+                        </div>
+                    </div>
                 </div>
 
             </div>
         </div>
 
-        <!-- Read This Section (3-Card Blue Border UI from Screenshots) -->
-        <div class="px-4 sm:px-6 py-10 sm:py-24 bg-gray-50 border-t border-gray-100 relative">
-            <div class="max-w-6xl mx-auto">
+        <!-- SECTION 2: DO ANY OF THESE SOUND LIKE YOU? -->
+        <div class="px-4 sm:px-8 py-10 sm:py-16 bg-slate-50 border-b border-slate-200">
+            <div class="max-w-5xl mx-auto">
                 
-                <!-- 3 Cards Layout: 3 Columns on PC / Stacked on Mobile -->
-                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8 items-stretch">
-                    
-                    <!-- Card 1: Daily Routine Flow -->
-                    <div class="bg-white border-2 border-[#3b0df2] rounded-[2rem] sm:rounded-[2.5rem] p-6 sm:p-8 text-center shadow-card flex flex-col justify-between">
-                        <div>
-                            <!-- Header -->
-                            <h2 class="text-[20px] sm:text-[24px] font-black uppercase tracking-tight text-brand-navy mb-2">
-                                READ <span class="text-[#3b0df2]">THIS BEFORE</span> WE CONTINUE...
-                            </h2>
-                            <p class="text-[13px] sm:text-[15px] font-medium text-gray-600 mb-6 sm:mb-8">Every day millions of Indians</p>
-                            
-                            <!-- Routine Items with Down Arrows -->
-                            <div class="flex flex-col gap-4 sm:gap-5 text-left max-w-[17rem] mx-auto">
-                                <div class="flex items-center gap-4">
-                                    <div class="w-10 h-10 rounded-xl bg-brand-light flex items-center justify-center text-[#3b0df2] shrink-0">
-                                        <i class="ph-fill ph-sun text-[22px]"></i>
-                                    </div>
-                                    <span class="text-[14px] sm:text-[16px] font-semibold text-brand-navy flex-1 flex items-center justify-between">
-                                        Wake Up <i class="ph-bold ph-arrow-down text-[#3b0df2] text-xs"></i>
-                                    </span>
-                                </div>
-
-                                <div class="flex items-center gap-4">
-                                    <div class="w-10 h-10 rounded-xl bg-brand-light flex items-center justify-center text-[#3b0df2] shrink-0">
-                                        <i class="ph-fill ph-buildings text-[22px]"></i>
-                                    </div>
-                                    <span class="text-[14px] sm:text-[16px] font-semibold text-brand-navy flex-1 flex items-center justify-between">
-                                        Go To College <i class="ph-bold ph-arrow-down text-[#3b0df2] text-xs"></i>
-                                    </span>
-                                </div>
-
-                                <div class="flex items-center gap-4">
-                                    <div class="w-10 h-10 rounded-xl bg-brand-light flex items-center justify-center text-[#3b0df2] shrink-0">
-                                        <i class="ph-fill ph-git-network text-[22px]"></i>
-                                    </div>
-                                    <span class="text-[14px] sm:text-[16px] font-semibold text-brand-navy flex-1 flex items-center justify-between">
-                                        Go To Office <i class="ph-bold ph-arrow-down text-[#3b0df2] text-xs"></i>
-                                    </span>
-                                </div>
-
-                                <div class="flex items-center gap-4">
-                                    <div class="w-10 h-10 rounded-xl bg-brand-light flex items-center justify-center text-[#3b0df2] shrink-0">
-                                        <i class="ph-fill ph-clipboard-text text-[22px]"></i>
-                                    </div>
-                                    <span class="text-[14px] sm:text-[16px] font-semibold text-brand-navy flex-1 flex items-center justify-between">
-                                        Complete Assignment <i class="ph-bold ph-arrow-down text-[#3b0df2] text-xs"></i>
-                                    </span>
-                                </div>
-
-                                <div class="flex items-center gap-4">
-                                    <div class="w-10 h-10 rounded-xl bg-[#3b0df2] text-white flex items-center justify-center shrink-0 shadow-md shadow-brand-blue/20">
-                                        <span class="font-black text-sm leading-none">$=</span>
-                                    </div>
-                                    <span class="text-[14px] sm:text-[16px] font-semibold text-brand-navy flex-1 flex items-center justify-between">
-                                        Earn Salaries. <i class="ph-bold ph-arrow-down text-[#3b0df2] text-xs"></i>
-                                    </span>
-                                </div>
-
-                                <div class="flex items-center gap-4">
-                                    <div class="w-10 h-10 rounded-xl bg-brand-light flex items-center justify-center text-[#3b0df2] shrink-0">
-                                        <i class="ph-fill ph-moon text-[22px]"></i>
-                                    </div>
-                                    <span class="text-[14px] sm:text-[16px] font-semibold text-brand-navy flex-1 flex items-center justify-between">
-                                        Sleep <i class="ph-bold ph-arrow-down text-[#3b0df2] text-xs"></i>
-                                    </span>
-                                </div>
-
-                                <div class="flex items-center gap-4">
-                                    <div class="w-10 h-10 rounded-xl bg-brand-light flex items-center justify-center text-[#3b0df2] shrink-0">
-                                        <i class="ph-bold ph-arrows-clockwise text-[22px]"></i>
-                                    </div>
-                                    <span class="text-[14px] sm:text-[16px] font-semibold text-brand-navy flex-1 flex items-center justify-between">
-                                        Repeat <i class="ph ph-circle text-[#3b0df2] text-xs"></i>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Card 2: Question & Market Shifts -->
-                    <div class="bg-white border-2 border-[#3b0df2] rounded-[2rem] sm:rounded-[2.5rem] p-6 sm:p-8 text-center shadow-card flex flex-col justify-between">
-                        <div>
-                            <p class="font-bold text-[14px] sm:text-[16px] text-brand-navy mb-4">But very few ask themselves one question.</p>
-
-                            <!-- Inner Boxed Quote -->
-                            <div class="border border-[#3b0df2]/40 bg-white rounded-2xl p-5 sm:p-6 text-center mb-6 shadow-xs">
-                                <p class="text-[16px] sm:text-[22px] font-black leading-snug tracking-tight text-brand-navy">
-                                    "<span class="text-[#3b0df2]">Am</span> I building my <span class="text-[#3b0df2]">future</span> or just helping someone else build <span class="text-[#3b0df2]">theirs?</span>"
-                                </p>
-                            </div>
-
-                            <p class="font-bold text-[14px] sm:text-[16px] text-brand-navy mb-6">The world is changing faster than ever.</p>
-
-                            <!-- Checklist -->
-                            <div class="flex flex-col gap-4 text-left max-w-[18rem] mx-auto">
-                                <div class="flex items-start gap-3">
-                                    <i class="ph-fill ph-check-circle text-[22px] text-[#3b0df2] shrink-0 mt-0.5"></i>
-                                    <span class="text-[13px] sm:text-[15px] font-medium text-gray-700 leading-snug">Artificial Intelligence is replacing repetitive work</span>
-                                </div>
-                                <div class="flex items-start gap-3">
-                                    <i class="ph-fill ph-check-circle text-[22px] text-[#3b0df2] shrink-0 mt-0.5"></i>
-                                    <span class="text-[13px] sm:text-[15px] font-medium text-gray-700 leading-snug">Degrees alone are no longer Enough</span>
-                                </div>
-                                <div class="flex items-start gap-3">
-                                    <i class="ph-fill ph-check-circle text-[22px] text-[#3b0df2] shrink-0 mt-0.5"></i>
-                                    <span class="text-[13px] sm:text-[15px] font-medium text-gray-700 leading-snug">Jobs are becoming uncertain</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Card 3: Founder Skills & Final Question -->
-                    <div class="bg-white border-2 border-[#3b0df2] rounded-[2rem] sm:rounded-[2.5rem] p-6 sm:p-8 text-center shadow-card flex flex-col justify-between">
-                        <div>
-                            <p class="font-bold text-[14px] sm:text-[16px] text-brand-navy mb-6 sm:mb-8">The future belongs to people who can</p>
-
-                            <!-- Skills List -->
-                            <div class="flex flex-col gap-5 text-left max-w-[16rem] mx-auto mb-8">
-                                <div class="flex items-center gap-4">
-                                    <i class="ph-fill ph-brain text-[32px] text-[#3b0df2] shrink-0"></i>
-                                    <span class="text-[15px] sm:text-[17px] font-semibold text-brand-navy">Think</span>
-                                </div>
-
-                                <div class="flex items-center gap-4">
-                                    <div class="bg-[#3b0df2] text-white rounded-lg p-1.5 w-[32px] h-[32px] flex items-center justify-center shrink-0">
-                                        <i class="ph-bold ph-check text-lg"></i>
-                                    </div>
-                                    <span class="text-[15px] sm:text-[17px] font-semibold text-brand-navy">Solve Problem</span>
-                                </div>
-
-                                <div class="flex items-center gap-4">
-                                    <i class="ph ph-lightbulb text-[32px] text-[#3b0df2] shrink-0"></i>
-                                    <span class="text-[15px] sm:text-[17px] font-semibold text-brand-navy">Build</span>
-                                </div>
-
-                                <div class="flex items-center gap-4">
-                                    <i class="ph-bold ph-trend-up text-[32px] text-[#3b0df2] shrink-0"></i>
-                                    <span class="text-[15px] sm:text-[17px] font-semibold text-brand-navy">Create Lead</span>
-                                </div>
-
-                                <div class="flex items-center gap-4">
-                                    <i class="ph-fill ph-git-network text-[32px] text-[#3b0df2] shrink-0"></i>
-                                    <span class="text-[15px] sm:text-[17px] font-semibold text-brand-navy">Create Opportunities</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Footer Question -->
-                        <div class="pt-4 border-t border-gray-100">
-                            <p class="font-bold text-[11px] sm:text-[13px] text-gray-500 uppercase tracking-widest mb-1">The only question is....</p>
-                            <p class="font-black text-[22px] sm:text-[30px] text-[#3b0df2] tracking-tight leading-tight">Will you be one of them ?</p>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-
-        <!-- Modules Section (Executive Dark Grid & Mobile Sidebar UI) -->
-        <div class="px-4 sm:px-6 py-10 sm:py-20 bg-white">
-            <div class="max-w-6xl mx-auto">
-                
-                <!-- Section Header -->
-                <div class="text-center mb-8 sm:mb-14">
-                    <span class="bg-[#3b0df2]/10 text-[#3b0df2] border border-[#3b0df2]/20 font-extrabold text-[10px] sm:text-xs px-3 py-1 rounded-full uppercase tracking-widest inline-block mb-2 sm:mb-3">LIVE CURRICULUM</span>
-                    <h2 class="font-black text-[20px] sm:text-[36px] uppercase leading-tight tracking-tight text-brand-navy">
-                        <span class="text-[#3b0df2]">IN THIS LIVE WORKSHOP</span><br class="hidden sm:block"> YOU WILL DISCOVER
+                <div class="text-center mb-8">
+                    <span class="bg-tfl-navy text-tfl-yellow font-black text-[10px] sm:text-xs px-3.5 py-1 rounded-full uppercase tracking-widest inline-block mb-2 shadow-xs">
+                        SELF ASSESSMENT
+                    </span>
+                    <h2 class="text-xl sm:text-3xl font-display font-black text-tfl-navy uppercase tracking-tight">
+                        Do Any of These <span class="text-tfl-orange">Sound Like You?</span>
                     </h2>
                 </div>
 
-                <!-- Modules Container (Mobile Executive Sidebar / Desktop Grid) -->
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3.5 sm:gap-6 max-w-5xl mx-auto">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
                     
-                    <!-- Module 1 -->
-                    <div class="bg-[#0A1128] border border-white/10 rounded-2xl sm:rounded-3xl p-3.5 sm:p-7 text-white shadow-lg hover:border-[#3b0df2]/60 hover:shadow-[0_15px_30px_rgba(59,13,242,0.25)] transition-all duration-300 flex sm:flex-col items-center sm:items-start justify-between gap-3 relative overflow-hidden group border-l-4 border-l-[#3b0df2]">
-                        <div class="flex flex-col items-start text-left flex-1">
-                            <div class="flex items-center gap-2 mb-1 sm:mb-3">
-                                <span class="bg-[#3b0df2] text-white text-[9px] sm:text-xs font-black px-2 py-0.5 rounded uppercase tracking-wider">MODULE 01</span>
-                            </div>
-                            <h3 class="text-[13px] sm:text-[17px] font-bold text-gray-100 leading-snug group-hover:text-white transition-colors">Future of Work in The Era of AI</h3>
+                    <div class="bg-white border-l-4 border-l-tfl-green border-y border-r border-slate-200 rounded-2xl p-4 shadow-sm hover:shadow-md transition-all flex items-start gap-3">
+                        <div class="w-9 h-9 rounded-xl bg-tfl-green/10 text-tfl-green flex items-center justify-center shrink-0 font-bold">
+                            <i class="ph-fill ph-compass text-xl"></i>
                         </div>
-                        <div class="w-10 h-10 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-yellow-400 shrink-0 group-hover:bg-[#3b0df2] group-hover:text-white transition-all duration-300 shadow-inner">
-                            <i class="ph ph-robot text-[20px] sm:text-[32px]"></i>
-                        </div>
-                    </div>
-
-                    <!-- Module 2 -->
-                    <div class="bg-[#0A1128] border border-white/10 rounded-2xl sm:rounded-3xl p-3.5 sm:p-7 text-white shadow-lg hover:border-[#3b0df2]/60 hover:shadow-[0_15px_30px_rgba(59,13,242,0.25)] transition-all duration-300 flex sm:flex-col items-center sm:items-start justify-between gap-3 relative overflow-hidden group border-l-4 border-l-yellow-400">
-                        <div class="flex flex-col items-start text-left flex-1">
-                            <div class="flex items-center gap-2 mb-1 sm:mb-3">
-                                <span class="bg-yellow-400 text-brand-navy text-[9px] sm:text-xs font-black px-2 py-0.5 rounded uppercase tracking-wider">MODULE 02</span>
-                            </div>
-                            <h3 class="text-[13px] sm:text-[17px] font-bold text-gray-100 leading-snug group-hover:text-white transition-colors">Founder VS Employee Mindset</h3>
-                        </div>
-                        <div class="w-10 h-10 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-yellow-400 shrink-0 group-hover:bg-[#3b0df2] group-hover:text-white transition-all duration-300 shadow-inner">
-                            <i class="ph ph-users text-[20px] sm:text-[32px]"></i>
+                        <div>
+                            <h3 class="font-bold text-tfl-navy text-xs sm:text-sm mb-0.5">Unsure Where To Begin</h3>
+                            <p class="text-[11px] sm:text-xs text-slate-600 font-medium leading-relaxed">
+                                You know you're capable of much more, but you're unsure where to begin.
+                            </p>
                         </div>
                     </div>
 
-                    <!-- Module 3 -->
-                    <div class="bg-[#0A1128] border border-white/10 rounded-2xl sm:rounded-3xl p-3.5 sm:p-7 text-white shadow-lg hover:border-[#3b0df2]/60 hover:shadow-[0_15px_30px_rgba(59,13,242,0.25)] transition-all duration-300 flex sm:flex-col items-center sm:items-start justify-between gap-3 relative overflow-hidden group border-l-4 border-l-[#3b0df2]">
-                        <div class="flex flex-col items-start text-left flex-1">
-                            <div class="flex items-center gap-2 mb-1 sm:mb-3">
-                                <span class="bg-[#3b0df2] text-white text-[9px] sm:text-xs font-black px-2 py-0.5 rounded uppercase tracking-wider">MODULE 03</span>
-                            </div>
-                            <h3 class="text-[13px] sm:text-[17px] font-bold text-gray-100 leading-snug group-hover:text-white transition-colors">The Founder Spark Framework</h3>
+                    <div class="bg-white border-l-4 border-l-tfl-orange border-y border-r border-slate-200 rounded-2xl p-4 shadow-sm hover:shadow-md transition-all flex items-start gap-3">
+                        <div class="w-9 h-9 rounded-xl bg-tfl-orange/10 text-tfl-orange flex items-center justify-center shrink-0 font-bold">
+                            <i class="ph-fill ph-rocket-launch text-xl"></i>
                         </div>
-                        <div class="w-10 h-10 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-yellow-400 shrink-0 group-hover:bg-[#3b0df2] group-hover:text-white transition-all duration-300 shadow-inner">
-                            <i class="ph ph-lightning text-[20px] sm:text-[32px]"></i>
-                        </div>
-                    </div>
-
-                    <!-- Module 4 -->
-                    <div class="bg-[#0A1128] border border-white/10 rounded-2xl sm:rounded-3xl p-3.5 sm:p-7 text-white shadow-lg hover:border-[#3b0df2]/60 hover:shadow-[0_15px_30px_rgba(59,13,242,0.25)] transition-all duration-300 flex sm:flex-col items-center sm:items-start justify-between gap-3 relative overflow-hidden group border-l-4 border-l-red-500">
-                        <div class="flex flex-col items-start text-left flex-1">
-                            <div class="flex items-center gap-2 mb-1 sm:mb-3">
-                                <span class="bg-red-500 text-white text-[9px] sm:text-xs font-black px-2 py-0.5 rounded uppercase tracking-wider">MODULE 04</span>
-                            </div>
-                            <h3 class="text-[13px] sm:text-[17px] font-bold text-gray-100 leading-snug group-hover:text-white transition-colors">Why Most Startups Fail Before They Even Begin</h3>
-                        </div>
-                        <div class="w-10 h-10 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-yellow-400 shrink-0 group-hover:bg-[#3b0df2] group-hover:text-white transition-all duration-300 shadow-inner">
-                            <i class="ph ph-warning text-[20px] sm:text-[32px]"></i>
+                        <div>
+                            <h3 class="font-bold text-tfl-navy text-xs sm:text-sm mb-0.5">Build Your Own Dream</h3>
+                            <p class="text-[11px] sm:text-xs text-slate-600 font-medium leading-relaxed">
+                                We want YOU to build something meaningful instead of spending your life building someone else's dream.
+                            </p>
                         </div>
                     </div>
 
-                    <!-- Module 5 -->
-                    <div class="bg-[#0A1128] border border-white/10 rounded-2xl sm:rounded-3xl p-3.5 sm:p-7 text-white shadow-lg hover:border-[#3b0df2]/60 hover:shadow-[0_15px_30px_rgba(59,13,242,0.25)] transition-all duration-300 flex sm:flex-col items-center sm:items-start justify-between gap-3 relative overflow-hidden group border-l-4 border-l-[#3b0df2]">
-                        <div class="flex flex-col items-start text-left flex-1">
-                            <div class="flex items-center gap-2 mb-1 sm:mb-3">
-                                <span class="bg-[#3b0df2] text-white text-[9px] sm:text-xs font-black px-2 py-0.5 rounded uppercase tracking-wider">MODULE 05</span>
-                            </div>
-                            <h3 class="text-[13px] sm:text-[17px] font-bold text-gray-100 leading-snug group-hover:text-white transition-colors">The Psychology Behind Great Founders</h3>
+                    <div class="bg-white border-l-4 border-l-tfl-cyan border-y border-r border-slate-200 rounded-2xl p-4 shadow-sm hover:shadow-md transition-all flex items-start gap-3">
+                        <div class="w-9 h-9 rounded-xl bg-tfl-cyan/10 text-tfl-cyan flex items-center justify-center shrink-0 font-bold">
+                            <i class="ph-fill ph-cpu text-xl"></i>
                         </div>
-                        <div class="w-10 h-10 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-yellow-400 shrink-0 group-hover:bg-[#3b0df2] group-hover:text-white transition-all duration-300 shadow-inner">
-                            <i class="ph ph-head-circuit text-[20px] sm:text-[32px]"></i>
+                        <div>
+                            <h3 class="font-bold text-tfl-navy text-xs sm:text-sm mb-0.5">Concerned About AI Speed</h3>
+                            <p class="text-[11px] sm:text-xs text-slate-600 font-medium leading-relaxed">
+                                You're worried that AI is changing the world faster than you're preparing for it.
+                            </p>
                         </div>
                     </div>
 
-                    <!-- Module 6 -->
-                    <div class="bg-[#0A1128] border border-white/10 rounded-2xl sm:rounded-3xl p-3.5 sm:p-7 text-white shadow-lg hover:border-[#3b0df2]/60 hover:shadow-[0_15px_30px_rgba(59,13,242,0.25)] transition-all duration-300 flex sm:flex-col items-center sm:items-start justify-between gap-3 relative overflow-hidden group border-l-4 border-l-emerald-400">
-                        <div class="flex flex-col items-start text-left flex-1">
-                            <div class="flex items-center gap-2 mb-1 sm:mb-3">
-                                <span class="bg-emerald-400 text-brand-navy text-[9px] sm:text-xs font-black px-2 py-0.5 rounded uppercase tracking-wider">MODULE 06</span>
-                            </div>
-                            <h3 class="text-[13px] sm:text-[17px] font-bold text-gray-100 leading-snug group-hover:text-white transition-colors">The Road Map To Becoming A Founder</h3>
+                    <div class="bg-white border-l-4 border-l-tfl-yellow border-y border-r border-slate-200 rounded-2xl p-4 shadow-sm hover:shadow-md transition-all flex items-start gap-3">
+                        <div class="w-9 h-9 rounded-xl bg-tfl-yellow/20 text-slate-900 flex items-center justify-center shrink-0 font-bold">
+                            <i class="ph-fill ph-lightbulb text-xl"></i>
                         </div>
-                        <div class="w-10 h-10 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-yellow-400 shrink-0 group-hover:bg-[#3b0df2] group-hover:text-white transition-all duration-300 shadow-inner">
-                            <i class="ph ph-flag text-[20px] sm:text-[32px]"></i>
+                        <div>
+                            <h3 class="font-bold text-tfl-navy text-xs sm:text-sm mb-0.5">Ambition Without Clarity</h3>
+                            <p class="text-[11px] sm:text-xs text-slate-600 font-medium leading-relaxed">
+                                You have ambition, ideas, or curiosity but lack clarity & direction to take the first step.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white border-l-4 border-l-tfl-red border-y border-r border-slate-200 rounded-2xl p-4 shadow-sm hover:shadow-md transition-all flex items-start gap-3">
+                        <div class="w-9 h-9 rounded-xl bg-tfl-red/10 text-tfl-red flex items-center justify-center shrink-0 font-bold">
+                            <i class="ph-fill ph-trophy text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-tfl-navy text-xs sm:text-sm mb-0.5">Refusing An Average Life</h3>
+                            <p class="text-[11px] sm:text-xs text-slate-600 font-medium leading-relaxed">
+                                You don't want to settle for an average career or an average life.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white border-l-4 border-l-tfl-gold border-y border-r border-slate-200 rounded-2xl p-4 shadow-sm hover:shadow-md transition-all flex items-start gap-3">
+                        <div class="w-9 h-9 rounded-xl bg-tfl-gold/20 text-tfl-navy flex items-center justify-center shrink-0 font-bold">
+                            <i class="ph-fill ph-map-trifold text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-tfl-navy text-xs sm:text-sm mb-0.5">Seeking The Right Roadmap</h3>
+                            <p class="text-[11px] sm:text-xs text-slate-600 font-medium leading-relaxed">
+                                You believe you were meant to create a bigger impact, but lack guidance.
+                            </p>
                         </div>
                     </div>
 
                 </div>
+
+                <div class="bg-tfl-navy text-white rounded-2xl p-5 sm:p-6 text-center shadow-lg max-w-3xl mx-auto border border-tfl-gold/30">
+                    <p class="text-sm sm:text-base font-extrabold text-white mb-2">
+                        If your answer is <span class="text-tfl-yellow underline">"Yes" to all of these</span>, you're exactly for whom this <span class="bg-white/10 px-2 py-0.5 rounded text-tfl-gold font-black">“Founder Spark” Orientation</span> is designed for….
+                    </p>
+                    <p class="text-xs text-slate-300 font-medium leading-relaxed">
+                        That feeling isn't random. It's your ambition asking for direction. The biggest mistake isn't not knowing where to start, it's waiting so long that someone else builds the future you could have helped create.
+                    </p>
+                </div>
+
             </div>
         </div>
 
-        <!-- Target Audience Section (Horizontal Scroll Carousel on Mobile / 3-Col Grid on Desktop) -->
-        <div class="px-4 sm:px-6 pt-10 pb-16 sm:pt-20 sm:pb-32 bg-gray-50 border-t border-gray-100 relative">
-            <div class="max-w-6xl mx-auto">
-                <h2 class="text-center font-black text-[22px] sm:text-[36px] uppercase leading-[1.2] tracking-tight mb-6 sm:mb-16 text-brand-navy">
-                    THIS WORKSHOP <span class="text-[#3b0df2]">IS PERFECT FOR YOU</span> IF....
-                </h2>
-
-                <!-- Mobile Swipe Indicator Pill -->
-                <div class="flex items-center justify-center gap-2 text-[11px] font-bold text-[#3b0df2] bg-[#3b0df2]/10 border border-[#3b0df2]/20 w-fit mx-auto px-3 py-1 rounded-full uppercase tracking-wider mb-6 md:hidden">
-                    <i class="ph-bold ph-hand-swipe-left text-sm"></i> Swipe to see all <i class="ph-bold ph-arrow-right text-xs"></i>
-                </div>
-
-                <!-- Cards Container: Scrollable Flex Carousel on Mobile / 3-Col Grid on Desktop -->
-                <div class="flex md:grid md:grid-cols-3 gap-4 sm:gap-6 md:gap-8 overflow-x-auto snap-x snap-mandatory pb-6 md:pb-0 scrollbar-none -mx-4 px-4 md:mx-0 md:px-0 items-stretch">
-                    
-                    <!-- Card 1: Student -->
-                    <div class="w-[82vw] max-w-[310px] md:max-w-none md:w-full snap-center shrink-0 md:shrink rounded-3xl overflow-hidden shadow-lg hover:-translate-y-2 transition-transform duration-300 bg-white border border-gray-100 p-2.5 flex flex-col">
-                        <img src="images/You Are A Student.png" alt="You Are A Student" class="w-full h-auto aspect-square object-contain rounded-2xl block">
-                    </div>
-
-                    <!-- Card 2: Professional -->
-                    <div class="w-[82vw] max-w-[310px] md:max-w-none md:w-full snap-center shrink-0 md:shrink rounded-3xl overflow-hidden shadow-lg hover:-translate-y-2 transition-transform duration-300 bg-white border-2 border-[#3b0df2] p-2.5 flex flex-col relative z-10 md:-mt-3 md:mb-3">
-                        <img src="images/Working Professional.png" alt="Working Professional" class="w-full h-auto aspect-square object-contain rounded-2xl block">
-                    </div>
-
-                    <!-- Card 3: Business Owner -->
-                    <div class="w-[82vw] max-w-[310px] md:max-w-none md:w-full snap-center shrink-0 md:shrink rounded-3xl overflow-hidden shadow-lg hover:-translate-y-2 transition-transform duration-300 bg-white border border-gray-100 p-2.5 flex flex-col">
-                        <img src="images/Business Owner.png" alt="Business Owner" class="w-full h-auto aspect-square object-contain rounded-2xl block">
-                    </div>
-
-                    <!-- End Spacer for Mobile Swipe -->
-                    <div class="w-2 shrink-0 md:hidden pointer-events-none"></div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Footer / Closing Section -->
-        <div class="bg-brand-dark text-white px-6 pt-20 pb-24 relative overflow-hidden mt-[-1rem]">
-            <div class="max-w-4xl mx-auto relative z-10 border border-white/5 rounded-[2rem] p-8 sm:p-16 bg-brand-navy/30 backdrop-blur-sm">
-                <h2 class="text-center font-medium text-[22px] sm:text-[36px] leading-[1.3] mb-12 sm:mb-16 tracking-wide text-gray-200">
-                    Your Future Won't Change By Accident...<br>
-                    <span class="text-white font-black block mt-4 text-[26px] sm:text-[42px] tracking-tight">It Changes By Decisions.</span>
-                </h2>
-
-                <div class="flex flex-col md:flex-row justify-center items-center md:items-start gap-10 md:gap-20 mb-12">
-                    <div class="flex items-center gap-5">
-                        <div class="w-14 h-14 rounded-2xl bg-white/5 flex items-center justify-center shrink-0 border border-white/10 text-brand-blue">
-                            <i class="ph ph-robot text-[32px]"></i>
-                        </div>
-                        <p class="text-[14px] sm:text-[16px] font-light leading-relaxed text-gray-300">Today You're Making One<br>Small Decision.</p>
-                    </div>
-                    <div class="flex items-center gap-5">
-                        <div class="w-14 h-14 rounded-2xl bg-brand-blue/10 flex items-center justify-center shrink-0 border border-brand-blue/20 text-brand-blue">
-                            <i class="ph ph-hourglass-high text-[32px]"></i>
-                        </div>
-                        <div class="text-[14px] sm:text-[16px] font-light leading-relaxed text-gray-300">
-                            <p>Two Hours.</p>
-                            <p>One Work Shop.</p>
-                            <p class="text-brand-blue font-semibold mt-0.5">Many Possibilities</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Final CTA -->
-                <div class="flex justify-center">
-                     <button onclick="window.open('https://pages.razorpay.com/pl_TM2WSHo1BLrqhx/view', '_blank')" class="w-full sm:max-w-[24rem] bg-brand-blue hover:bg-[#2069C2] transition-all duration-300 transform hover:-translate-y-1 text-white rounded-xl py-4 sm:py-5 text-[15px] sm:text-[17px] font-bold shadow-glow hover:shadow-glow-hover flex items-center justify-center gap-2 cursor-pointer">
-                        Join the Workshop Now <i class="ph-bold ph-arrow-right mt-[1px] text-lg"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Section 1: Imagine If You Could Discover... -->
-        <div class="px-4 sm:px-6 py-12 sm:py-24 bg-white border-t border-gray-100">
-            <div class="max-w-6xl mx-auto">
-                <div class="text-center mb-10 sm:mb-16">
-                    <span class="bg-[#3b0df2]/10 text-[#3b0df2] border border-[#3b0df2]/20 font-extrabold text-[10px] sm:text-xs px-3 py-1 rounded-full uppercase tracking-widest inline-block mb-3">KEY TAKEAWAYS</span>
-                    <h2 class="text-[24px] sm:text-[40px] font-black tracking-tight uppercase text-brand-navy">
-                        <span class="text-[#3b0df2]">Imagine If You Could</span><br>Discover...
+        <!-- PERSONAS SHOWCASE -->
+        <div class="px-4 sm:px-8 py-10 sm:py-16 bg-white border-b border-slate-200">
+            <div class="max-w-5xl mx-auto">
+                <div class="text-center mb-8">
+                    <span class="bg-tfl-cyan/10 text-tfl-cyan font-black text-[10px] sm:text-xs px-3.5 py-1 rounded-full uppercase tracking-widest inline-block mb-2">WHO IS THIS FOR</span>
+                    <h2 class="text-xl sm:text-3xl font-display font-black text-tfl-navy uppercase tracking-tight">
+                        DESIGNED FOR <span class="text-tfl-navy underline decoration-tfl-cyan decoration-4">AMBITIOUS BUILDERS</span>
                     </h2>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 max-w-5xl mx-auto">
-                    <div class="bg-gray-50/80 border border-gray-100 rounded-2xl p-5 sm:p-6 flex items-start gap-4 shadow-xs hover:border-[#3b0df2]/40 hover:shadow-md transition-all">
-                        <div class="w-12 h-12 rounded-xl bg-brand-light flex items-center justify-center text-[#3b0df2] shrink-0">
-                            <i class="ph-fill ph-chat-teardrop-dots text-[26px]"></i>
-                        </div>
-                        <p class="text-[14px] sm:text-[16px] font-semibold text-brand-navy leading-snug">Whether entrepreneurship is really for you</p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+                    <div class="bg-slate-50 border border-slate-200 rounded-2xl p-2.5 shadow-sm hover:-translate-y-1 transition-transform">
+                        <img src="images/You Are A Student.png" alt="You Are A Student" class="w-full h-auto aspect-square object-contain rounded-xl">
                     </div>
-
-                    <div class="bg-gray-50/80 border border-gray-100 rounded-2xl p-5 sm:p-6 flex items-start gap-4 shadow-xs hover:border-[#3b0df2]/40 hover:shadow-md transition-all">
-                        <div class="w-12 h-12 rounded-xl bg-brand-light flex items-center justify-center text-[#3b0df2] shrink-0">
-                            <i class="ph-fill ph-user-focus text-[26px]"></i>
-                        </div>
-                        <p class="text-[14px] sm:text-[16px] font-semibold text-brand-navy leading-snug">Whether you possess founder qualities</p>
+                    <div class="bg-slate-50 border-2 border-tfl-navy rounded-2xl p-2.5 shadow-md hover:-translate-y-1 transition-transform relative">
+                        <span class="absolute top-4 right-4 bg-tfl-orange text-white text-[9px] font-black px-2 py-0.5 rounded-full uppercase">Most Popular</span>
+                        <img src="images/Working Professional.png" alt="Working Professional" class="w-full h-auto aspect-square object-contain rounded-xl">
                     </div>
-
-                    <div class="bg-gray-50/80 border border-gray-100 rounded-2xl p-5 sm:p-6 flex items-start gap-4 shadow-xs hover:border-[#3b0df2]/40 hover:shadow-md transition-all">
-                        <div class="w-12 h-12 rounded-xl bg-brand-light flex items-center justify-center text-[#3b0df2] shrink-0">
-                            <i class="ph-fill ph-lightbulb-filament text-[26px]"></i>
-                        </div>
-                        <p class="text-[14px] sm:text-[16px] font-semibold text-brand-navy leading-snug">Why some people naturally create opportunities</p>
-                    </div>
-
-                    <div class="bg-gray-50/80 border border-gray-100 rounded-2xl p-5 sm:p-6 flex items-start gap-4 shadow-xs hover:border-[#3b0df2]/40 hover:shadow-md transition-all">
-                        <div class="w-12 h-12 rounded-xl bg-brand-light flex items-center justify-center text-[#3b0df2] shrink-0">
-                            <i class="ph-fill ph-brain text-[26px]"></i>
-                        </div>
-                        <p class="text-[14px] sm:text-[16px] font-semibold text-brand-navy leading-snug">How successful founders think differently</p>
-                    </div>
-
-                    <div class="bg-gray-50/80 border border-gray-100 rounded-2xl p-5 sm:p-6 flex items-start gap-4 shadow-xs hover:border-[#3b0df2]/40 hover:shadow-md transition-all">
-                        <div class="w-12 h-12 rounded-xl bg-brand-light flex items-center justify-center text-[#3b0df2] shrink-0">
-                            <i class="ph-fill ph-cpu text-[26px]"></i>
-                        </div>
-                        <p class="text-[14px] sm:text-[16px] font-semibold text-brand-navy leading-snug">Why AI will reward creators more than employees</p>
-                    </div>
-
-                    <div class="bg-gray-50/80 border border-gray-100 rounded-2xl p-5 sm:p-6 flex items-start gap-4 shadow-xs hover:border-[#3b0df2]/40 hover:shadow-md transition-all">
-                        <div class="w-12 h-12 rounded-xl bg-brand-light flex items-center justify-center text-[#3b0df2] shrink-0">
-                            <i class="ph-fill ph-target text-[26px]"></i>
-                        </div>
-                        <p class="text-[14px] sm:text-[16px] font-semibold text-brand-navy leading-snug">Your biggest career advantage before it's too late</p>
+                    <div class="bg-slate-50 border border-slate-200 rounded-2xl p-2.5 shadow-sm hover:-translate-y-1 transition-transform">
+                        <img src="images/Business Owner.png" alt="Business Owner" class="w-full h-auto aspect-square object-contain rounded-xl">
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Section 2: Frequently Asked Questions -->
-        <div class="px-4 sm:px-6 py-12 sm:py-24 bg-gray-50 border-t border-gray-100">
-            <div class="max-w-4xl mx-auto">
-                <div class="text-center mb-10 sm:mb-14">
-                    <p class="text-gray-500 font-extrabold text-[11px] sm:text-xs uppercase tracking-widest mb-2">NEED SOME ANSWERS?</p>
-                    <h2 class="text-[26px] sm:text-[42px] font-black uppercase text-[#3b0df2] tracking-tight">Frequently asked questions</h2>
-                </div>
-
-                <div class="flex flex-col gap-4 max-w-3xl mx-auto">
-                    <details class="group bg-white border border-gray-200 rounded-2xl p-5 sm:p-6 shadow-xs cursor-pointer transition-all duration-200" open>
-                        <summary class="flex items-center justify-between font-bold text-[15px] sm:text-[18px] text-brand-navy list-none gap-3">
-                            <span class="flex items-center gap-2.5">
-                                <span class="text-red-500 font-black text-lg">?</span> Do I need any prior business experience?
-                            </span>
-                            <span class="w-8 h-8 rounded-full bg-brand-blue/10 text-[#3b0df2] flex items-center justify-center shrink-0 group-open:rotate-180 transition-transform">
-                                <i class="ph-bold ph-caret-down"></i>
-                            </span>
-                        </summary>
-                        <p class="text-[13px] sm:text-[15px] font-medium text-gray-600 mt-4 pt-3 border-t border-gray-100 leading-relaxed">
-                            No prior business experience is required. This workshop is specifically designed from step zero to help students, working professionals, and aspiring entrepreneurs discover their founder mindset.
-                        </p>
-                    </details>
-
-                    <details class="group bg-white border border-gray-200 rounded-2xl p-5 sm:p-6 shadow-xs cursor-pointer transition-all duration-200">
-                        <summary class="flex items-center justify-between font-bold text-[15px] sm:text-[18px] text-brand-navy list-none gap-3">
-                            <span class="flex items-center gap-2.5">
-                                <span class="text-red-500 font-black text-lg">?</span> Will I receive the workshop joining details?
-                            </span>
-                            <span class="w-8 h-8 rounded-full bg-brand-blue/10 text-[#3b0df2] flex items-center justify-center shrink-0 group-open:rotate-180 transition-transform">
-                                <i class="ph-bold ph-caret-down"></i>
-                            </span>
-                        </summary>
-                        <p class="text-[13px] sm:text-[15px] font-medium text-gray-600 mt-4 pt-3 border-t border-gray-100 leading-relaxed">
-                            Yes! Immediately upon completing your ₹9 enrollment, you will receive instant access links and confirmation details directly on WhatsApp and your registered email.
-                        </p>
-                    </details>
-
-                    <details class="group bg-white border border-gray-200 rounded-2xl p-5 sm:p-6 shadow-xs cursor-pointer transition-all duration-200">
-                        <summary class="flex items-center justify-between font-bold text-[15px] sm:text-[18px] text-brand-navy list-none gap-3">
-                            <span class="flex items-center gap-2.5">
-                                <span class="text-red-500 font-black text-lg">?</span> Is this workshop live or pre-recorded?
-                            </span>
-                            <span class="w-8 h-8 rounded-full bg-brand-blue/10 text-[#3b0df2] flex items-center justify-center shrink-0 group-open:rotate-180 transition-transform">
-                                <i class="ph-bold ph-caret-down"></i>
-                            </span>
-                        </summary>
-                        <p class="text-[13px] sm:text-[15px] font-medium text-gray-600 mt-4 pt-3 border-t border-gray-100 leading-relaxed">
-                            This is a 100% LIVE interactive 2-hour workshop where you can learn directly, ask questions live, and engage with real-world examples.
-                        </p>
-                    </details>
-
-                    <details class="group bg-white border border-gray-200 rounded-2xl p-5 sm:p-6 shadow-xs cursor-pointer transition-all duration-200">
-                        <summary class="flex items-center justify-between font-bold text-[15px] sm:text-[18px] text-brand-navy list-none gap-3">
-                            <span class="flex items-center gap-2.5">
-                                <span class="text-red-500 font-black text-lg">?</span> What should I do if I miss the live session?
-                            </span>
-                            <span class="w-8 h-8 rounded-full bg-brand-blue/10 text-[#3b0df2] flex items-center justify-center shrink-0 group-open:rotate-180 transition-transform">
-                                <i class="ph-bold ph-caret-down"></i>
-                            </span>
-                        </summary>
-                        <p class="text-[13px] sm:text-[15px] font-medium text-gray-600 mt-4 pt-3 border-t border-gray-100 leading-relaxed">
-                            While live attendance is strongly recommended for max value, registered participants will receive summary frameworks and access to core learning resources.
-                        </p>
-                    </details>
-                </div>
-            </div>
-        </div>
-
-        <!-- Section 3: Final Offer Card (What you'll get:) -->
-        <div class="px-4 sm:px-6 py-12 sm:py-24 bg-gradient-to-br from-pink-50/40 via-white to-brand-light/50 border-t border-gray-100">
-            <div class="max-w-2xl mx-auto bg-white border-2 border-[#3b0df2] rounded-[2rem] sm:rounded-[2.5rem] p-6 sm:p-10 shadow-2xl text-center relative overflow-hidden">
+        <!-- SECTION 3: HERE'S THE GOOD NEWS... -->
+        <div class="px-4 sm:px-8 py-10 sm:py-16 bg-slate-50 border-b border-slate-200">
+            <div class="max-w-4xl mx-auto text-center">
                 
-                <h2 class="text-[22px] sm:text-[36px] font-black uppercase text-[#3b0df2] tracking-tight mb-2">FOUNDER DISCOVERY WORKSHOP</h2>
-                
-                <!-- Price Box -->
-                <div class="flex items-center justify-center gap-3 mb-1">
-                    <span class="text-[36px] sm:text-[52px] font-black text-brand-navy">₹9</span>
-                    <span class="text-[28px] sm:text-[40px] font-bold text-gray-400 line-through">₹999</span>
-                </div>
-                <span class="bg-amber-100 text-amber-800 text-[10px] sm:text-xs font-black px-3 py-1 rounded-full uppercase tracking-wider mb-6 inline-block">Limited Seats</span>
+                <h2 class="text-xl sm:text-3xl font-display font-black text-tfl-navy uppercase tracking-tight mb-5">
+                    🚀 Here's the <span class="text-tfl-green">Good News...</span>
+                </h2>
 
-                <!-- Action CTA -->
-                <button onclick="window.open('https://pages.razorpay.com/pl_TM2WSHo1BLrqhx/view', '_blank')" class="w-full max-w-md mx-auto bg-[#3b0df2] hover:bg-[#2c08c4] text-white text-[14px] sm:text-[18px] font-bold py-3.5 sm:py-4 px-6 rounded-xl shadow-lg flex items-center justify-center gap-2 mb-8 transition-all transform hover:-translate-y-1 cursor-pointer">
-                    <span>Join the Founder Discovery Workshop</span> <i class="ph-bold ph-arrow-right"></i>
+                <div class="bg-white border border-slate-200 rounded-2xl p-5 sm:p-8 shadow-sm text-left sm:text-center mb-6">
+                    <p class="text-xs sm:text-base text-slate-800 font-medium leading-relaxed mb-4">
+                        During the Founder Spark Orientation, we'll help you understand why the future belongs to builders, how AI is creating new categories of opportunities, what else is yet to come and impact… & the first steps towards becoming the kind of person who creates value instead of waiting for it.
+                    </p>
+                    
+                    <div class="bg-tfl-navy text-white rounded-xl p-4 font-bold text-xs sm:text-sm border-l-4 border-tfl-gold">
+                        This isn't about becoming a founder overnight. It's about discovering whether the founder within you deserves a chance to be developed.
+                    </div>
+                </div>
+
+                <button onclick="window.open('https://pages.razorpay.com/pl_TM2WSHo1BLrqhx/view', '_blank')" class="bg-tfl-orange hover:bg-orange-600 text-white font-extrabold text-xs sm:text-base py-3.5 px-7 rounded-xl shadow-cta-glow inline-flex items-center gap-2 transition-all transform hover:-translate-y-0.5 cursor-pointer">
+                    <span>Register Now for Just ₹9</span>
+                    <i class="ph-bold ph-arrow-right"></i>
                 </button>
 
-                <!-- What You'll Get Summary List -->
-                <div class="text-left border-t border-gray-100 pt-6">
-                    <h3 class="font-black text-[16px] sm:text-[20px] text-brand-navy mb-4 flex items-center gap-2">
-                        🎁 What you'll get:
-                    </h3>
+            </div>
+        </div>
 
-                    <div class="flex flex-col gap-4 text-[13px] sm:text-[15px] font-medium text-gray-700">
-                        <div class="flex items-start gap-3">
-                            <i class="ph-fill ph-check-circle text-[20px] text-emerald-600 shrink-0 mt-0.5"></i>
-                            <div>
-                                <span class="font-bold text-brand-navy">Founder Mindset Framework:</span> Learn how successful founders think, make decisions, and create opportunities.
-                            </div>
-                        </div>
+        <!-- SECTION 4: WHAT YOU'LL DISCOVER INSIDE -->
+        <div class="px-4 sm:px-8 py-10 sm:py-16 bg-white border-b border-slate-200">
+            <div class="max-w-5xl mx-auto">
+                
+                <div class="text-center mb-8">
+                    <span class="bg-tfl-navy text-tfl-gold font-black text-[10px] sm:text-xs px-3.5 py-1 rounded-full uppercase tracking-widest inline-block mb-2">CURRICULUM BREAKDOWN</span>
+                    <h2 class="text-xl sm:text-3xl font-display font-black text-tfl-navy uppercase tracking-tight mb-2">
+                        Here's What You'll Discover Inside <span class="text-tfl-orange">The Orientation</span>
+                    </h2>
+                    <p class="text-xs sm:text-sm text-slate-600 font-medium max-w-2xl mx-auto">
+                        In just 90 minutes, gain clarity, uncover opportunities, and understand the mindset required to thrive in the AI era.
+                    </p>
+                </div>
 
-                        <div class="flex items-start gap-3">
-                            <i class="ph-fill ph-check-circle text-[20px] text-emerald-600 shrink-0 mt-0.5"></i>
-                            <div>
-                                <span class="font-bold text-brand-navy">AI-Powered Career & Business Roadmap:</span> Understand how to leverage AI to stay ahead in your career or business.
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+                    
+                    <div class="bg-slate-50 border border-slate-200 rounded-2xl p-5 shadow-sm flex flex-col justify-between">
+                        <div>
+                            <div class="w-10 h-10 rounded-xl bg-tfl-navy text-tfl-gold font-display font-black text-lg flex items-center justify-center mb-3">
+                                01
                             </div>
+                            <h3 class="font-extrabold text-tfl-navy text-sm sm:text-base mb-2 leading-snug">
+                                Why the Future Belongs to GAME CHANGERS & Not Followers
+                            </h3>
+                            <p class="text-xs text-slate-600 font-medium leading-relaxed">
+                                Understand how AI is reshaping careers, industries, and opportunities and why founder thinking is standard for the next decade.
+                            </p>
                         </div>
+                        <div class="mt-4 pt-3 border-t border-slate-200 flex items-center gap-1.5 text-tfl-green text-xs font-bold">
+                            <i class="ph-bold ph-lightning"></i> Mindset Transformation
+                        </div>
+                    </div>
 
-                        <div class="flex items-start gap-3">
-                            <i class="ph-fill ph-check-circle text-[20px] text-emerald-600 shrink-0 mt-0.5"></i>
-                            <div>
-                                <span class="font-bold text-brand-navy">Actionable Growth Blueprint:</span> Get a step-by-step roadmap to start building your future with confidence.
+                    <div class="bg-slate-50 border border-slate-200 rounded-2xl p-5 shadow-sm flex flex-col justify-between">
+                        <div>
+                            <div class="w-10 h-10 rounded-xl bg-tfl-navy text-tfl-gold font-display font-black text-lg flex items-center justify-center mb-3">
+                                02
                             </div>
+                            <h3 class="font-extrabold text-tfl-navy text-sm sm:text-base mb-2 leading-snug">
+                                Why Most People Never Build What They're Truly Capable Of
+                            </h3>
+                            <p class="text-xs text-slate-600 font-medium leading-relaxed">
+                                Discover the common misconceptions, limiting beliefs, and wrong starting points that keep ambitious people stuck.
+                            </p>
                         </div>
+                        <div class="mt-4 pt-3 border-t border-slate-200 flex items-center gap-1.5 text-tfl-orange text-xs font-bold">
+                            <i class="ph-bold ph-shield-warning"></i> Overcoming Barriers
+                        </div>
+                    </div>
 
-                        <div class="flex items-start gap-3">
-                            <i class="ph-fill ph-check-circle text-[20px] text-emerald-600 shrink-0 mt-0.5"></i>
-                            <div>
-                                <span class="font-bold text-brand-navy">Exclusive FounderLab Community Join:</span> A network of ambitious founders, creators, and professionals for ongoing learning and support.
+                    <div class="bg-slate-50 border border-slate-200 rounded-2xl p-5 shadow-sm flex flex-col justify-between">
+                        <div>
+                            <div class="w-10 h-10 rounded-xl bg-tfl-navy text-tfl-gold font-display font-black text-lg flex items-center justify-center mb-3">
+                                03
                             </div>
+                            <h3 class="font-extrabold text-tfl-navy text-sm sm:text-base mb-2 leading-snug">
+                                Your Roadmap to Becoming a Future Founder
+                            </h3>
+                            <p class="text-xs text-slate-600 font-medium leading-relaxed">
+                                Get an exclusive introduction to the FGI ecosystem journey: Spark, Flame, Blaze & THE LAUNCH PAD.
+                            </p>
                         </div>
+                        <div class="mt-4 pt-3 border-t border-slate-200 flex items-center gap-1.5 text-tfl-cyan text-xs font-bold">
+                            <i class="ph-bold ph-map-trifold"></i> Complete Blueprint
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+        <!-- SECTION 5: WANT TO KNOW MORE ABOUT US? -->
+        <div class="px-4 sm:px-8 py-12 sm:py-18 bg-tfl-navy text-white relative overflow-hidden text-center">
+            <div class="max-w-4xl mx-auto relative z-10">
+                
+                <div class="flex flex-col items-center justify-center mb-6">
+                    <img src="images/Founders Global Institute.png" alt="FGI Crest" class="h-20 sm:h-28 w-auto object-contain mb-3 drop-shadow-xl">
+                    <span class="bg-tfl-gold text-tfl-deepNavy font-black text-[10px] sm:text-xs px-3.5 py-1 rounded-full uppercase tracking-widest">
+                        ABOUT THE ECOSYSTEM
+                    </span>
+                </div>
+
+                <h2 class="text-xl sm:text-3xl font-display font-black uppercase tracking-tight mb-4">
+                    ⭐ Want to Know More About Us? ⭐
+                </h2>
+
+                <p class="text-xs sm:text-base text-slate-200 font-medium leading-relaxed mb-8 max-w-2xl mx-auto">
+                    Founder Global Institute (FGI) is one of the armies of <strong class="text-white underline decoration-tfl-yellow">TFL (THE FOUNDERS LAB) ECOSYSTEM</strong> created to help ambitious individuals seed, nurture & build meaningful ventures in the AI era. We aim to <strong class="text-tfl-yellow uppercase">FORGE</strong> the next generation of entrepreneurs.
+                </p>
+
+                <div class="bg-white/5 border border-tfl-gold/30 rounded-2xl p-5 sm:p-6 backdrop-blur-md max-w-2xl mx-auto">
+                    <p class="text-[10px] sm:text-xs text-tfl-goldLight uppercase tracking-wider font-extrabold mb-4">
+                        Explore our vision and ecosystem before joining the “Founder SPARK” Orientation:
+                    </p>
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <a href="https://www.thefounderslab.asia" target="_blank" class="bg-white text-tfl-navy hover:bg-slate-100 font-extrabold text-xs py-3 px-4 rounded-xl flex items-center justify-center gap-2 transition-all">
+                            <img src="images/thefounderlabs.jpeg" alt="TFL" class="h-4 w-auto object-contain">
+                            <span>www.thefounderslab.asia</span>
+                            <i class="ph-bold ph-arrow-square-out text-sm"></i>
+                        </a>
+                        <a href="https://www.founderglobal.institute" target="_blank" class="bg-tfl-deepNavy border border-tfl-gold/50 text-tfl-gold hover:bg-black font-extrabold text-xs py-3 px-4 rounded-xl flex items-center justify-center gap-2 transition-all">
+                            <i class="ph-bold ph-buildings text-base"></i>
+                            <span>www.founderglobal.institute</span>
+                            <i class="ph-bold ph-arrow-square-out text-sm"></i>
+                        </a>
                     </div>
                 </div>
 
+            </div>
+        </div>
+
+        <!-- SECTION 6: YOU PRETTY MUCH JUST HAVE 2 CHOICES NOW -->
+        <div class="px-4 sm:px-8 py-10 sm:py-16 bg-slate-50 border-b border-slate-200">
+            <div class="max-w-5xl mx-auto">
+                
+                <div class="text-center mb-8">
+                    <h2 class="text-xl sm:text-3xl font-display font-black text-tfl-navy uppercase tracking-tight">
+                        YOU PRETTY MUCH JUST HAVE <span class="text-tfl-orange">2 CHOICES NOW :</span>
+                    </h2>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-5 items-stretch">
+                    
+                    <div class="bg-white border-2 border-slate-200 rounded-2xl p-5 sm:p-6 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center gap-1.5 text-slate-500 font-extrabold text-[10px] uppercase tracking-wider mb-2">
+                                <i class="ph-bold ph-x-circle text-tfl-red text-sm"></i> CHOICE #1
+                            </div>
+                            <h3 class="text-lg sm:text-xl font-bold text-tfl-navy mb-3">
+                                Close This Page and Continue as You Are
+                            </h3>
+                            <p class="text-xs text-slate-600 font-medium leading-relaxed mb-3">
+                                Return to the same routine, hoping that one day you'll find the right opportunity. But while you wait, the world & your Smart Friends won't.
+                            </p>
+                            <p class="text-xs text-slate-600 font-medium leading-relaxed">
+                                AI will continue to reshape industries. A year from now, you may still ask: <strong class="text-tfl-navy">"What if I had simply taken the first step?"</strong>
+                            </p>
+                        </div>
+                        <div class="mt-4 pt-3 border-t border-slate-200 text-center text-[10px] font-bold text-slate-400 uppercase">
+                            Result: Regret & Missed Opportunities
+                        </div>
+                    </div>
+
+                    <div class="bg-tfl-navy text-white border-2 border-tfl-gold rounded-2xl p-5 sm:p-6 shadow-xl flex flex-col justify-between relative overflow-hidden">
+                        <div class="absolute top-0 right-0 bg-tfl-gold text-tfl-deepNavy text-[8px] font-black px-2.5 py-0.5 rounded-bl-lg uppercase tracking-widest">
+                            RECOMMENDED
+                        </div>
+                        <div>
+                            <div class="flex items-center gap-1.5 text-tfl-yellow font-extrabold text-[10px] uppercase tracking-wider mb-2">
+                                <i class="ph-fill ph-check-circle text-tfl-green text-sm"></i> CHOICE #2
+                            </div>
+                            <h3 class="text-lg sm:text-xl font-display font-black text-white mb-2">
+                                Join the 90-Minute Founder Discovery Orientation
+                            </h3>
+                            <p class="text-xs sm:text-sm font-extrabold text-tfl-yellow mb-3">
+                                Because Your Future Should Be Built by Your Decisions, Not Your Regrets!
+                            </p>
+                            <p class="text-xs text-slate-300 font-medium leading-relaxed">
+                                Step into a structured environment, gain actionable direction in the AI era, and discover the game changer inside you for just ₹9.
+                            </p>
+                        </div>
+                        
+                        <div class="mt-4 pt-3 border-t border-white/10">
+                            <button onclick="window.open('https://pages.razorpay.com/pl_TM2WSHo1BLrqhx/view', '_blank')" class="w-full bg-tfl-orange hover:bg-orange-600 text-white font-extrabold text-xs sm:text-sm py-3.5 px-4 rounded-xl shadow-cta-glow flex items-center justify-center gap-2 transition-all cursor-pointer">
+                                <span>REGISTER NOW FOR JUST ₹9</span>
+                                <i class="ph-bold ph-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+        <!-- SECTION 7: FREQUENTLY ASKED QUESTIONS -->
+        <div class="px-4 sm:px-8 py-10 sm:py-16 bg-white">
+            <div class="max-w-4xl mx-auto">
+                
+                <div class="text-center mb-8">
+                    <span class="bg-tfl-navy text-tfl-gold font-black text-[10px] sm:text-xs px-3.5 py-1 rounded-full uppercase tracking-widest inline-block mb-2">CLEAR YOUR DOUBTS</span>
+                    <h2 class="text-xl sm:text-3xl font-display font-black uppercase text-tfl-navy tracking-tight">
+                        Still Have Any <span class="text-tfl-orange">Questions?</span>
+                    </h2>
+                </div>
+
+                <div class="flex flex-col gap-3 max-w-3xl mx-auto">
+                    
+                    <details class="group bg-slate-50 border border-slate-200 rounded-2xl p-4 shadow-xs cursor-pointer" open>
+                        <summary class="flex items-center justify-between font-bold text-xs sm:text-base text-tfl-navy list-none gap-3">
+                            <span class="flex items-center gap-2">
+                                <span class="text-tfl-orange font-black">?</span> What exactly is the Founder SPARK Orientation?
+                            </span>
+                            <span class="w-7 h-7 rounded-full bg-slate-200 text-tfl-navy flex items-center justify-center shrink-0 group-open:rotate-180 transition-transform text-xs">
+                                <i class="ph-bold ph-caret-down"></i>
+                            </span>
+                        </summary>
+                        <p class="text-xs font-medium text-slate-600 mt-2.5 pt-2.5 border-t border-slate-200 leading-relaxed">
+                            This is a live 90-minute experience designed to help you understand why the future belongs to “GAME CHANGERS”, how AI is changing the world, and how to begin your Founder Journey with clarity before investing your time, energy, or money into the wrong path.
+                        </p>
+                    </details>
+
+                    <details class="group bg-slate-50 border border-slate-200 rounded-2xl p-4 shadow-xs cursor-pointer">
+                        <summary class="flex items-center justify-between font-bold text-xs sm:text-base text-tfl-navy list-none gap-3">
+                            <span class="flex items-center gap-2">
+                                <span class="text-tfl-orange font-black">?</span> Is this only for people who want to start a startup?
+                            </span>
+                            <span class="w-7 h-7 rounded-full bg-slate-200 text-tfl-navy flex items-center justify-center shrink-0 group-open:rotate-180 transition-transform text-xs">
+                                <i class="ph-bold ph-caret-down"></i>
+                            </span>
+                        </summary>
+                        <p class="text-xs font-medium text-slate-600 mt-2.5 pt-2.5 border-t border-slate-200 leading-relaxed">
+                            Not at all. It's for anyone who wants to think like a founder whether you're a student, working professional, entrepreneur, creator, freelancer, or simply someone who believes to be capable of building something bigger than your current reality.
+                        </p>
+                    </details>
+
+                    <details class="group bg-slate-50 border border-slate-200 rounded-2xl p-4 shadow-xs cursor-pointer">
+                        <summary class="flex items-center justify-between font-bold text-xs sm:text-base text-tfl-navy list-none gap-3">
+                            <span class="flex items-center gap-2">
+                                <span class="text-tfl-orange font-black">?</span> I don't have a business idea. Can I still join?
+                            </span>
+                            <span class="w-7 h-7 rounded-full bg-slate-200 text-tfl-navy flex items-center justify-center shrink-0 group-open:rotate-180 transition-transform text-xs">
+                                <i class="ph-bold ph-caret-down"></i>
+                            </span>
+                        </summary>
+                        <p class="text-xs font-medium text-slate-600 mt-2.5 pt-2.5 border-t border-slate-200 leading-relaxed">
+                            Absolutely. Great founders don't start with perfect ideas, they start with the right mindset. This Orientation is about developing the builder before building the business.
+                        </p>
+                    </details>
+
+                    <details class="group bg-slate-50 border border-slate-200 rounded-2xl p-4 shadow-xs cursor-pointer">
+                        <summary class="flex items-center justify-between font-bold text-xs sm:text-base text-tfl-navy list-none gap-3">
+                            <span class="flex items-center gap-2">
+                                <span class="text-tfl-orange font-black">?</span> Why should I attend this instead of watching free YouTube videos?
+                            </span>
+                            <span class="w-7 h-7 rounded-full bg-slate-200 text-tfl-navy flex items-center justify-center shrink-0 group-open:rotate-180 transition-transform text-xs">
+                                <i class="ph-bold ph-caret-down"></i>
+                            </span>
+                        </summary>
+                        <p class="text-xs font-medium text-slate-600 mt-2.5 pt-2.5 border-t border-slate-200 leading-relaxed">
+                            Because information isn't the problem anymore, THE CLARITY is. The Founder Discovery Orientation is a structured experience that connects ideas into a roadmap Made with years of Research Of Experienced People, helping you understand what to focus on next BIG WAVE OF TECHNOLOGY.
+                        </p>
+                    </details>
+
+                    <details class="group bg-slate-50 border border-slate-200 rounded-2xl p-4 shadow-xs cursor-pointer">
+                        <summary class="flex items-center justify-between font-bold text-xs sm:text-base text-tfl-navy list-none gap-3">
+                            <span class="flex items-center gap-2">
+                                <span class="text-tfl-orange font-black">?</span> What makes Founders Global Institute different?
+                            </span>
+                            <span class="w-7 h-7 rounded-full bg-slate-200 text-tfl-navy flex items-center justify-center shrink-0 group-open:rotate-180 transition-transform text-xs">
+                                <i class="ph-bold ph-caret-down"></i>
+                            </span>
+                        </summary>
+                        <p class="text-xs font-medium text-slate-600 mt-2.5 pt-2.5 border-t border-slate-200 leading-relaxed">
+                            FGI isn't built around selling courses. It's built around developing founders. Our focus is on long-term founder development through a structured journey, practical learning, mentorship, community, and continuous growth.
+                        </p>
+                    </details>
+
+                    <details class="group bg-slate-50 border border-slate-200 rounded-2xl p-4 shadow-xs cursor-pointer">
+                        <summary class="flex items-center justify-between font-bold text-xs sm:text-base text-tfl-navy list-none gap-3">
+                            <span class="flex items-center gap-2">
+                                <span class="text-tfl-orange font-black">?</span> What will I actually gain in these 90 minutes?
+                            </span>
+                            <span class="w-7 h-7 rounded-full bg-slate-200 text-tfl-navy flex items-center justify-center shrink-0 group-open:rotate-180 transition-transform text-xs">
+                                <i class="ph-bold ph-caret-down"></i>
+                            </span>
+                        </summary>
+                        <p class="text-xs font-medium text-slate-600 mt-2.5 pt-2.5 border-t border-slate-200 leading-relaxed">
+                            You'll leave with a clearer understanding of the opportunities created by the AI era, the mindset required to thrive as a FOUNDER, and the roadmap to continue your Founder Journey with confidence.
+                        </p>
+                    </details>
+
+                    <details class="group bg-slate-50 border border-slate-200 rounded-2xl p-4 shadow-xs cursor-pointer">
+                        <summary class="flex items-center justify-between font-bold text-xs sm:text-base text-tfl-navy list-none gap-3">
+                            <span class="flex items-center gap-2">
+                                <span class="text-tfl-orange font-black">?</span> Why is the registration fee just ₹9?
+                            </span>
+                            <span class="w-7 h-7 rounded-full bg-slate-200 text-tfl-navy flex items-center justify-center shrink-0 group-open:rotate-180 transition-transform text-xs">
+                                <i class="ph-bold ph-caret-down"></i>
+                            </span>
+                        </summary>
+                        <p class="text-xs font-medium text-slate-600 mt-2.5 pt-2.5 border-t border-slate-200 leading-relaxed">
+                            The ₹9 registration is a symbolic commitment. It helps ensure genuine participation while making this experience accessible to anyone serious about investing in their future.
+                        </p>
+                    </details>
+
+                    <details class="group bg-slate-50 border border-slate-200 rounded-2xl p-4 shadow-xs cursor-pointer">
+                        <summary class="flex items-center justify-between font-bold text-xs sm:text-base text-tfl-navy list-none gap-3">
+                            <span class="flex items-center gap-2">
+                                <span class="text-tfl-orange font-black">?</span> What happens after the Orientation?
+                            </span>
+                            <span class="w-7 h-7 rounded-full bg-slate-200 text-tfl-navy flex items-center justify-center shrink-0 group-open:rotate-180 transition-transform text-xs">
+                                <i class="ph-bold ph-caret-down"></i>
+                            </span>
+                        </summary>
+                        <p class="text-xs font-medium text-slate-600 mt-2.5 pt-2.5 border-t border-slate-200 leading-relaxed">
+                            If the journey resonates with you, you'll have the opportunity to continue through the structured Founder Development pathway at Founders Global Institute.
+                        </p>
+                    </details>
+
+                    <details class="group bg-slate-50 border border-slate-200 rounded-2xl p-4 shadow-xs cursor-pointer">
+                        <summary class="flex items-center justify-between font-bold text-xs sm:text-base text-tfl-navy list-none gap-3">
+                            <span class="flex items-center gap-2">
+                                <span class="text-tfl-orange font-black">?</span> Why should I trust Founders Global Institute?
+                            </span>
+                            <span class="w-7 h-7 rounded-full bg-slate-200 text-tfl-navy flex items-center justify-center shrink-0 group-open:rotate-180 transition-transform text-xs">
+                                <i class="ph-bold ph-caret-down"></i>
+                            </span>
+                        </summary>
+                        <p class="text-xs font-medium text-slate-600 mt-2.5 pt-2.5 border-t border-slate-200 leading-relaxed">
+                            Because our mission isn't to sell courses, it's to develop founders. Every stage of the FGI ecosystem is designed around long-term growth, practical learning, mentorship, and community.
+                        </p>
+                    </details>
+
+                    <details class="group bg-slate-50 border border-slate-200 rounded-2xl p-4 shadow-xs cursor-pointer">
+                        <summary class="flex items-center justify-between font-bold text-xs sm:text-base text-tfl-navy list-none gap-3">
+                            <span class="flex items-center gap-2">
+                                <span class="text-tfl-orange font-black">?</span> Why should I join today instead of waiting?
+                            </span>
+                            <span class="w-7 h-7 rounded-full bg-slate-200 text-tfl-navy flex items-center justify-center shrink-0 group-open:rotate-180 transition-transform text-xs">
+                                <i class="ph-bold ph-caret-down"></i>
+                            </span>
+                        </summary>
+                        <p class="text-xs font-medium text-slate-600 mt-2.5 pt-2.5 border-t border-slate-200 leading-relaxed">
+                            Because opportunities rarely announce themselves twice. Every day you postpone investing in your own growth is another day the world continues to evolve.
+                        </p>
+                    </details>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- FOOTER -->
+        <div class="bg-tfl-navy text-white px-6 py-10 text-center border-t border-slate-700">
+            <div class="max-w-4xl mx-auto flex flex-col items-center">
+                <div class="flex items-center gap-3 mb-3">
+                    <img src="images/Founders Global Institute.png" alt="FGI Crest" class="h-10 w-auto object-contain">
+                    <img src="images/thefounderlabs.jpeg" alt="TFL Logo" class="h-8 w-auto object-contain bg-white rounded p-0.5">
+                </div>
+                <h3 class="text-lg sm:text-xl font-display font-black text-tfl-gold uppercase tracking-tight mb-1">
+                    FOUNDER GLOBAL INSTITUTE
+                </h3>
+                <p class="text-xs text-slate-300 font-medium mb-4">
+                    Part of The Founders Lab Ecosystem. Forging the next generation of founders & opportunity creators.
+                </p>
+                <div class="flex flex-wrap items-center justify-center gap-3 text-xs text-slate-400">
+                    <a href="https://www.thefounderslab.asia" target="_blank" class="hover:text-tfl-gold transition-colors font-bold">www.thefounderslab.asia</a>
+                    <span>•</span>
+                    <a href="https://www.founderglobal.institute" target="_blank" class="hover:text-tfl-gold transition-colors font-bold">www.founderglobal.institute</a>
+                </div>
             </div>
         </div>
 
     </main>
 
-    <!-- Fixed Sticky Bottom CTA Bar (Creative Executive UI - Poppins Font) -->
-    <div id="stickyCtaBar" class="fixed bottom-0 left-0 right-0 z-50 transform translate-y-full opacity-0 transition-all duration-500 ease-out pointer-events-none p-3 sm:p-4 bg-white/95 backdrop-blur-xl border-t-2 border-[#3b0df2] shadow-[0_-10px_35px_rgba(59,13,242,0.12)] font-poppins text-brand-navy">
+    <!-- Sticky Bottom CTA Bar -->
+    <div id="stickyCtaBar" class="fixed bottom-0 left-0 right-0 z-50 transform translate-y-full opacity-0 transition-all duration-500 ease-out pointer-events-none p-3 sm:p-4 bg-white/95 backdrop-blur-xl border-t-2 border-tfl-navy shadow-2xl text-tfl-navy">
         <div class="max-w-4xl mx-auto flex items-center justify-between gap-3 relative">
             
-            <!-- Left Info Block: Price + Off Badge + Urgency Pill -->
             <div class="flex items-center gap-2 sm:gap-3.5">
                 <div class="flex flex-col">
                     <div class="flex items-center gap-1.5 sm:gap-2">
-                        <span class="text-[20px] sm:text-[28px] font-black text-brand-navy leading-none tracking-tight">₹9</span>
-                        <span class="text-[12px] sm:text-[14px] font-bold text-gray-400 line-through leading-none">₹999</span>
-                        <span class="bg-red-50 text-red-600 border border-red-200/80 text-[9px] sm:text-[10px] font-extrabold px-2 py-0.5 rounded-full uppercase tracking-wider">
+                        <span class="text-xl sm:text-2xl font-display font-black text-tfl-navy leading-none">₹9</span>
+                        <span class="text-xs sm:text-sm font-bold text-slate-400 line-through leading-none">₹999</span>
+                        <span class="bg-tfl-red/10 text-tfl-red border border-tfl-red/30 text-[9px] sm:text-[10px] font-black px-2 py-0.5 rounded-full uppercase">
                             99% OFF
                         </span>
                     </div>
-                    <span class="text-[9px] sm:text-[11px] font-bold text-[#3b0df2] flex items-center gap-1 mt-0.5">
+                    <span class="text-[9px] sm:text-[11px] font-bold text-tfl-orange flex items-center gap-1 mt-0.5">
                         <span class="relative flex h-2 w-2">
-                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#3b0df2] opacity-75"></span>
-                            <span class="relative inline-flex rounded-full h-2 w-2 bg-[#3b0df2]"></span>
+                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-tfl-orange opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-2 w-2 bg-tfl-orange"></span>
                         </span>
-                        🔥 Limited Seats Left
+                        🔥 Last 27 Slots Left
                     </span>
                 </div>
             </div>
 
-            <!-- Right Creative Button: Gradient Purple, Shimmer Effect & Glowing Arrow -->
-            <button onclick="window.open('https://pages.razorpay.com/pl_TM2WSHo1BLrqhx/view', '_blank')" class="relative overflow-hidden group bg-gradient-to-r from-[#3b0df2] via-[#4f23f7] to-[#3b0df2] text-white text-[12px] sm:text-[15px] font-black px-4 sm:px-7 py-2.5 sm:py-3.5 rounded-xl shadow-[0_4px_20px_rgba(59,13,242,0.4)] hover:shadow-[0_6px_30px_rgba(59,13,242,0.7)] hover:scale-[1.03] active:scale-95 transition-all flex items-center gap-2 shrink-0 cursor-pointer">
-                <!-- Shimmer Sheen Sweep Animation -->
-                <span class="absolute inset-0 w-1/2 h-full bg-white/20 skew-x-12 -translate-x-full group-hover:translate-x-[300%] transition-transform duration-1000 ease-out pointer-events-none"></span>
-                
-                <i class="ph-fill ph-lightning text-yellow-300 text-sm sm:text-base animate-bounce"></i>
-                <span class="uppercase tracking-wider">Join Founder Discovery</span>
-                <i class="ph-bold ph-arrow-right text-xs sm:text-sm group-hover:translate-x-1 transition-transform"></i>
+            <button onclick="window.open('https://pages.razorpay.com/pl_TM2WSHo1BLrqhx/view', '_blank')" class="relative overflow-hidden group bg-tfl-orange hover:bg-orange-600 text-white text-xs sm:text-sm font-extrabold px-4 sm:px-6 py-2.5 sm:py-3 rounded-xl shadow-cta-glow hover:scale-[1.02] transition-all flex items-center gap-2 shrink-0 cursor-pointer">
+                <i class="ph-fill ph-lightning text-tfl-yellow animate-bounce"></i>
+                <span class="uppercase">Register Now for ₹9</span>
+                <i class="ph-bold ph-arrow-right text-xs sm:text-sm"></i>
             </button>
 
         </div>
     </div>
 
-    <!-- Scroll Detection JavaScript -->
+    <!-- Countdown & Scroll JavaScript -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const stickyBar = document.getElementById('stickyCtaBar');
-            
             window.addEventListener('scroll', function() {
-                // Show sticky bar after scrolling down 350px (past hero section)
-                if (window.scrollY > 350) {
+                if (window.scrollY > 250) {
                     stickyBar.classList.remove('translate-y-full', 'opacity-0', 'pointer-events-none');
                     stickyBar.classList.add('translate-y-0', 'opacity-100', 'pointer-events-auto');
                 } else {
@@ -759,6 +764,34 @@
                     stickyBar.classList.add('translate-y-full', 'opacity-0', 'pointer-events-none');
                 }
             });
+
+            // Target Date: 14.08.2026 at 19:00 IST
+            const targetDate = new Date('2026-08-14T19:00:00+05:30').getTime();
+
+            function updateCountdown() {
+                const now = new Date().getTime();
+                const diff = targetDate - now;
+
+                if (diff > 0) {
+                    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                    const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+                    document.getElementById('timerDays').innerText = String(days).padStart(2, '0');
+                    document.getElementById('timerHours').innerText = String(hours + (days * 24)).padStart(2, '0');
+                    document.getElementById('timerMinutes').innerText = String(minutes).padStart(2, '0');
+                    document.getElementById('timerSeconds').innerText = String(seconds).padStart(2, '0');
+                } else {
+                    document.getElementById('timerDays').innerText = '00';
+                    document.getElementById('timerHours').innerText = '00';
+                    document.getElementById('timerMinutes').innerText = '00';
+                    document.getElementById('timerSeconds').innerText = '00';
+                }
+            }
+
+            updateCountdown();
+            setInterval(updateCountdown, 1000);
         });
     </script>
 </body>

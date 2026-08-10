@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Payment Successful - Founder Discovery Workshop</title>
+    <title>Payment Successful - Founder SPARK Orientation</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Phosphor Icons -->
@@ -64,11 +64,10 @@
     <!-- Top Compact Navigation Header -->
     <header class="bg-white border-b border-gray-200/80 shrink-0 py-2 sm:py-2.5 px-4 sm:px-6 shadow-xs">
         <div class="max-w-4xl mx-auto flex items-center justify-between">
-            <!-- Brand Logo -->
-            <a href="index.html" class="flex items-center gap-2">
-                <h1 class="text-lg sm:text-xl font-black tracking-tighter text-brand-navy">
-                    FOUNDERS <span class="text-brand-purple">LAB</span>
-                </h1>
+            <a href="index.html" class="flex items-center gap-3">
+                <img src="images/Founders Global Institute.png" alt="FGI Seal" class="h-8 sm:h-10 w-auto object-contain">
+                <div class="h-5 w-[1px] bg-slate-300"></div>
+                <img src="images/thefounderlabs.jpeg" alt="TFL Logo" class="h-6 sm:h-8 w-auto object-contain">
             </a>
 
             <!-- Status Badge -->
@@ -97,7 +96,7 @@
                 Payment Successful! 🎉
             </h2>
             <p class="text-[11px] sm:text-xs text-gray-600 font-medium mt-0.5">
-                Your seat for the <span class="font-bold text-brand-navy">Founder Discovery Workshop</span> is confirmed.
+                Your seat for the <span class="font-bold text-brand-navy">Founder SPARK Orientation</span> is confirmed.
             </p>
         </div>
 
@@ -263,8 +262,8 @@
 
         // Add to Google Calendar
         function addToCalendar() {
-            const title = encodeURIComponent("Founder Discovery Workshop - Live Session");
-            const details = encodeURIComponent("Live 2-Hour Founder Discovery Workshop by FounderLab. Access link provided in the VIP WhatsApp Group.");
+            const title = encodeURIComponent("Founder SPARK Orientation - Live Session");
+            const details = encodeURIComponent("Live 90-Minute Founder SPARK Orientation by Founder Global Institute. Access link provided in the VIP WhatsApp Group.");
             const location = encodeURIComponent("Live Online (Zoom Meeting)");
             const calendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&details=${details}&location=${location}`;
             window.open(calendarUrl, '_blank');
