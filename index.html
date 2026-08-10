@@ -501,6 +501,125 @@
             </div>
         </div>
 
+        <!-- SECTION: EXECUTIVE LEADERSHIP & MENTORSHIP -->
+        <div class="px-4 sm:px-8 py-10 sm:py-16 bg-slate-50 border-b border-slate-200">
+            <div class="max-w-5xl mx-auto">
+                
+                <div class="text-center mb-8">
+                    <span class="bg-tfl-navy text-tfl-gold font-black text-[10px] sm:text-xs px-3.5 py-1 rounded-full uppercase tracking-widest inline-block mb-2 shadow-xs">
+                        LEADERSHIP & MENTORSHIP
+                    </span>
+                    <h2 class="text-xl sm:text-3xl font-display font-black text-tfl-navy uppercase tracking-tight">
+                        Guided by <span class="text-tfl-orange">Industry Veterans</span>
+                    </h2>
+                    <p class="text-xs sm:text-sm text-slate-600 font-medium max-w-2xl mx-auto mt-2">
+                        Learn directly from leaders who have scaled multi-million dollar enterprises and mentored dozens of early-stage founders.
+                    </p>
+                </div>
+
+                <!-- Executive Card -->
+                <div class="bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 shadow-lg relative overflow-hidden">
+                    
+                    <!-- Decorative Top Border Glow -->
+                    <div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-tfl-navy via-tfl-orange to-tfl-gold"></div>
+
+                    <div class="flex flex-col lg:flex-row items-start gap-6 sm:gap-8">
+                        
+                        <!-- Left Avatar / Badge Column -->
+                        <div class="flex flex-col items-center shrink-0 w-full lg:w-48 text-center">
+                            <div class="relative mb-3">
+                                <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-2xl bg-gradient-to-br from-tfl-navy to-tfl-deepNavy text-tfl-gold flex items-center justify-center font-display font-black text-2xl sm:text-3xl border-2 border-tfl-gold/40 shadow-md">
+                                    <span>JKB</span>
+                                </div>
+                                <div class="absolute -bottom-2 bg-tfl-orange text-white text-[9px] font-black px-2.5 py-0.5 rounded-full uppercase tracking-wider shadow-xs">
+                                    33+ Yrs Exp
+                                </div>
+                            </div>
+                            <h3 class="font-display font-black text-slate-900 text-lg sm:text-xl leading-tight">
+                                Jitendra Kumar Badami
+                            </h3>
+                            <p class="text-xs font-bold text-tfl-orange mt-1">
+                                Founder, CEO & National Business Head
+                            </p>
+                            <span class="inline-flex items-center gap-1 text-[10px] font-bold text-slate-500 bg-slate-100 px-2.5 py-1 rounded-full mt-2">
+                                <i class="ph-fill ph-seal-check text-tfl-green text-xs"></i> Key Ecosystem Mentor
+                            </span>
+                        </div>
+
+                        <!-- Right Info & Details Column -->
+                        <div class="flex-1 w-full">
+                            
+                            <!-- Highlights Badges Bar -->
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="bg-indigo-50 border border-indigo-100 text-indigo-900 text-[11px] font-bold px-3 py-1 rounded-lg flex items-center gap-1.5">
+                                    <i class="ph-bold ph-briefcase text-indigo-600"></i> 33+ Years Industry Experience
+                                </span>
+                                <span class="bg-amber-50 border border-amber-100 text-amber-900 text-[11px] font-bold px-3 py-1 rounded-lg flex items-center gap-1.5">
+                                    <i class="ph-bold ph-chart-line-up text-amber-600"></i> Startup Funding & Scale-Up
+                                </span>
+                                <span class="bg-emerald-50 border border-emerald-100 text-emerald-900 text-[11px] font-bold px-3 py-1 rounded-lg flex items-center gap-1.5">
+                                    <i class="ph-bold ph-buildings text-emerald-600"></i> Worked Across Leading Brands
+                                </span>
+                            </div>
+
+                            <!-- Expandable Bio Container -->
+                            <div class="relative">
+                                <div id="mentorBioContainer" class="text-xs sm:text-sm text-slate-600 font-medium leading-relaxed space-y-3 max-h-[115px] overflow-hidden transition-all duration-500 ease-in-out relative">
+                                    <p>
+                                        A 33+ year veteran across Technology, Telecom, Consumer Electronics and White Goods, with hands-on experience in startup funding, business scaling, GTM/RTM and enterprise growth.
+                                    </p>
+                                    <p>
+                                        He has been part of a startup journey from idea to USD 0.5M in pre-seed funding and helped drive 400% revenue growth toward a USD 1.5M Series A raise, including a rigorous Deloitte India-led due-diligence process.
+                                    </p>
+                                    <p>
+                                        His industry experience includes working across major retail and business ecosystems associated with <strong>TFL, Samsung, Motorola, Videocon, Sansui, Toshiba, Kenwood, Kenstar, Beetel (Bharti Airtel Group), Microsoft, Haier, Usha-Lexus, Arise (IPL Fame)</strong> etc. alongside leadership roles as a Founder, Co-Founder, CEO and National Business Head Level.
+                                    </p>
+                                    <p>
+                                        He has also spent the last six years mentoring early-stage founders — helping transform ideas into pitch-ready, investor-aligned and scalable businesses.
+                                    </p>
+                                    
+                                    <!-- Gradient Overlay when collapsed -->
+                                    <div id="mentorBioOverlay" class="absolute bottom-0 left-0 right-0 h-14 bg-gradient-to-t from-white via-white/80 to-transparent pointer-events-none transition-opacity duration-300"></div>
+                                </div>
+
+                                <!-- Read More / Read Less Toggle Button -->
+                                <button id="mentorBioBtn" onclick="toggleMentorBio()" class="mt-2.5 inline-flex items-center gap-1.5 text-xs sm:text-sm font-extrabold text-tfl-navy hover:text-tfl-orange transition-colors cursor-pointer group">
+                                    <span id="mentorBioBtnText">Read More</span>
+                                    <i id="mentorBioBtnIcon" class="ph-bold ph-caret-down group-hover:translate-y-0.5 transition-transform text-tfl-orange"></i>
+                                </button>
+                            </div>
+
+                            <!-- Associated Major Brands Ticker/Chips -->
+                            <div class="mt-5 pt-4 border-t border-slate-100">
+                                <div class="text-[10px] font-extrabold text-slate-400 uppercase tracking-wider mb-2">
+                                    Associated Ecosystem & Brands Experience:
+                                </div>
+                                <div class="flex flex-wrap gap-1.5">
+                                    <span class="bg-slate-100 text-slate-700 text-[10px] font-bold px-2.5 py-0.5 rounded-md">TFL</span>
+                                    <span class="bg-slate-100 text-slate-700 text-[10px] font-bold px-2.5 py-0.5 rounded-md">Samsung</span>
+                                    <span class="bg-slate-100 text-slate-700 text-[10px] font-bold px-2.5 py-0.5 rounded-md">Motorola</span>
+                                    <span class="bg-slate-100 text-slate-700 text-[10px] font-bold px-2.5 py-0.5 rounded-md">Microsoft</span>
+                                    <span class="bg-slate-100 text-slate-700 text-[10px] font-bold px-2.5 py-0.5 rounded-md">Videocon</span>
+                                    <span class="bg-slate-100 text-slate-700 text-[10px] font-bold px-2.5 py-0.5 rounded-md">Sansui</span>
+                                    <span class="bg-slate-100 text-slate-700 text-[10px] font-bold px-2.5 py-0.5 rounded-md">Toshiba</span>
+                                    <span class="bg-slate-100 text-slate-700 text-[10px] font-bold px-2.5 py-0.5 rounded-md">Kenwood</span>
+                                    <span class="bg-slate-100 text-slate-700 text-[10px] font-bold px-2.5 py-0.5 rounded-md">Kenstar</span>
+                                    <span class="bg-slate-100 text-slate-700 text-[10px] font-bold px-2.5 py-0.5 rounded-md">Beetel (Bharti Airtel Group)</span>
+                                    <span class="bg-slate-100 text-slate-700 text-[10px] font-bold px-2.5 py-0.5 rounded-md">Haier</span>
+                                    <span class="bg-slate-100 text-slate-700 text-[10px] font-bold px-2.5 py-0.5 rounded-md">Usha-Lexus</span>
+                                    <span class="bg-slate-100 text-slate-700 text-[10px] font-bold px-2.5 py-0.5 rounded-md">Arise (IPL Fame)</span>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
         <!-- SECTION 6: YOU PRETTY MUCH JUST HAVE 2 CHOICES NOW -->
         <div class="px-4 sm:px-8 py-10 sm:py-16 bg-slate-50 border-b border-slate-200">
             <div class="max-w-5xl mx-auto">
@@ -779,6 +898,33 @@
 
     <!-- Countdown & Scroll JavaScript -->
     <script>
+        function toggleMentorBio() {
+            const container = document.getElementById('mentorBioContainer');
+            const overlay = document.getElementById('mentorBioOverlay');
+            const btnText = document.getElementById('mentorBioBtnText');
+            const btnIcon = document.getElementById('mentorBioBtnIcon');
+
+            if (!container || !overlay || !btnText || !btnIcon) return;
+
+            const isCollapsed = container.classList.contains('max-h-[115px]');
+
+            if (isCollapsed) {
+                container.classList.remove('max-h-[115px]');
+                container.classList.add('max-h-[1000px]');
+                overlay.classList.add('opacity-0');
+                btnText.innerText = 'Read Less';
+                btnIcon.classList.remove('ph-caret-down');
+                btnIcon.classList.add('ph-caret-up');
+            } else {
+                container.classList.remove('max-h-[1000px]');
+                container.classList.add('max-h-[115px]');
+                overlay.classList.remove('opacity-0');
+                btnText.innerText = 'Read More';
+                btnIcon.classList.remove('ph-caret-up');
+                btnIcon.classList.add('ph-caret-down');
+            }
+        }
+
         document.addEventListener('DOMContentLoaded', function() {
             const stickyBar = document.getElementById('stickyCtaBar');
             window.addEventListener('scroll', function() {
