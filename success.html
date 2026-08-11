@@ -171,7 +171,7 @@
         <div class="mt-2.5 sm:mt-3 w-full bg-white border border-gray-200/80 rounded-xl py-2 px-3 flex items-center justify-between text-[10px] sm:text-xs text-gray-600 shrink-0">
             <span class="flex items-center gap-1.5 font-medium text-brand-navy">
                 <i class="ph-bold ph-calendar-blank text-brand-purple"></i>
-                <span id="displaySessionDate">Live Session • Saturday 7:00 PM IST</span>
+                <span id="displaySessionDate">Live Session • Sunday, 16th Aug 7:00 PM IST</span>
             </span>
             <button onclick="addToCalendar()" class="text-brand-purple font-bold hover:underline flex items-center gap-1">
                 <i class="ph-bold ph-calendar-plus"></i> Add Calendar
@@ -210,7 +210,7 @@
             // Parse URL Parameters
             const urlParams = new URLSearchParams(window.location.search);
             const groupUrl = urlParams.get('group_url') || urlParams.get('wa') || DEFAULT_WHATSAPP_LINK;
-            const dateStr = urlParams.get('date') || 'Live Session • Saturday 7:00 PM IST';
+            const dateStr = urlParams.get('date') || 'Live Session • Sunday, 16th Aug 7:00 PM IST';
 
             // DOM Population
             document.getElementById('displaySessionDate').innerText = dateStr;
