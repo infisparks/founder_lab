@@ -137,22 +137,72 @@
                     </p>
                 </div>
 
-                <!-- CREATIVE IMAGE CONTAINER (PLACED DIRECTLY ABOVE THE BUTTON!) -->
-                <div class="relative w-full max-w-[320px] sm:max-w-md rounded-xl sm:rounded-2xl overflow-hidden shadow-navy-glow group cursor-pointer border-2 border-tfl-gold/50 bg-tfl-deepNavy mb-3 sm:mb-4">
-                    <img src="https://raw.githubusercontent.com/infisparks/images/refs/heads/main/founder_lab_thumbnail.png" alt="Founder SPARK Orientation" class="w-full h-auto object-contain group-hover:scale-[1.02] transition-transform duration-500">
-                    
-                    <!-- Overlay Gradient -->
-                    <div class="absolute inset-0 bg-tfl-navy/20 group-hover:bg-tfl-navy/40 transition-colors"></div>
-                    
-                    <!-- Play Badge Overlay -->
-                    <div class="absolute top-2 left-2 bg-tfl-deepNavy/80 backdrop-blur-md border border-tfl-gold/40 text-tfl-yellow text-[9px] font-black px-2 py-0.5 rounded-full flex items-center gap-1">
-                        <i class="ph-fill ph-play-circle text-tfl-orange"></i> 90-MIN ORIENTATION
-                    </div>
+                <!-- PROFESSIONAL YOUTUBE VIDEO SECTION (RESPONSIVE 16:9 WITH INSTANT AUTOPLAY FACADE) -->
+                <div class="w-full max-w-[340px] sm:max-w-xl lg:max-w-2xl mb-3 sm:mb-4">
+                    <div class="relative rounded-2xl sm:rounded-3xl overflow-hidden border-2 border-tfl-gold/60 shadow-navy-glow bg-tfl-deepNavy group">
+                        
+                        <!-- 16:9 Aspect Ratio Video Box -->
+                        <div id="heroVideoWrapper" class="relative w-full aspect-video bg-black overflow-hidden flex items-center justify-center">
+                            
+                            <!-- Video Facade Poster & Controls Overlay -->
+                            <div id="heroVideoFacade" onclick="playHeroVideo()" onkeydown="handleHeroVideoKey(event)" class="absolute inset-0 w-full h-full cursor-pointer z-10 group/facade focus:outline-none focus:ring-2 focus:ring-tfl-gold" tabindex="0" role="button" aria-label="Play Founder Global Institute Orientation Video">
+                                
+                                <!-- High-Resolution Poster -->
+                                <img src="https://img.youtube.com/vi/OoqaHaoha90/maxresdefault.jpg" 
+                                     onerror="this.src='https://img.youtube.com/vi/OoqaHaoha90/hqdefault.jpg'"
+                                     alt="Founder Global Institute Orientation Video" 
+                                     class="w-full h-full object-cover group-hover/facade:scale-105 transition-transform duration-700">
+                                
+                                <!-- Sleek Vignette Gradient -->
+                                <div class="absolute inset-0 bg-gradient-to-t from-tfl-deepNavy/95 via-tfl-navy/30 to-black/50 group-hover/facade:via-tfl-navy/20 transition-all duration-300"></div>
 
-                    <!-- Glowing Center Play Button -->
-                    <div class="absolute inset-0 flex items-center justify-center">
-                        <div class="w-10 h-10 sm:w-14 sm:h-14 bg-tfl-orange rounded-full flex items-center justify-center border-2 border-white shadow-cta-glow group-hover:scale-110 transition-transform">
-                            <i class="ph-fill ph-play text-lg sm:text-2xl text-white ml-0.5"></i>
+                                <!-- Top Badges Bar -->
+                                <div class="absolute top-2.5 sm:top-3.5 left-2.5 sm:left-3.5 right-2.5 sm:right-3.5 flex items-center justify-between pointer-events-none">
+                                    <div class="bg-tfl-deepNavy/90 backdrop-blur-md border border-tfl-gold/50 text-tfl-yellow text-[9px] sm:text-xs font-black px-2.5 py-1 rounded-full flex items-center gap-1.5 shadow-md">
+                                        <span class="relative flex h-2 w-2">
+                                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-tfl-red opacity-75"></span>
+                                            <span class="relative inline-flex rounded-full h-2 w-2 bg-tfl-red"></span>
+                                        </span>
+                                        <i class="ph-fill ph-video-camera text-tfl-orange"></i>
+                                        <span>ORIENTATION PREVIEW</span>
+                                    </div>
+                                    <div class="bg-black/70 backdrop-blur-md border border-white/20 text-slate-200 text-[9px] sm:text-xs font-extrabold px-2.5 py-1 rounded-full flex items-center gap-1">
+                                        <i class="ph-fill ph-sparkle text-tfl-gold"></i>
+                                        <span>HD • 1080p</span>
+                                    </div>
+                                </div>
+
+                                <!-- Center Glowing Play Button with Ripple Animation -->
+                                <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                                    <div class="relative flex items-center justify-center">
+                                        <div class="absolute w-14 h-14 sm:w-20 sm:h-20 bg-tfl-orange/30 rounded-full animate-ping"></div>
+                                        <div class="absolute w-18 h-18 sm:w-24 sm:h-24 bg-tfl-gold/25 rounded-full animate-pulse"></div>
+                                        <div class="relative w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-tr from-tfl-orange via-orange-500 to-amber-400 rounded-full flex items-center justify-center border-2 border-white shadow-cta-glow group-hover/facade:scale-110 transition-transform duration-300">
+                                            <i class="ph-fill ph-play text-xl sm:text-2xl text-white ml-0.5 drop-shadow-sm"></i>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Bottom Info Tag Bar -->
+                                <div class="absolute bottom-2 sm:bottom-3 left-2 sm:left-3 right-2 sm:right-3 flex items-center justify-between pointer-events-none text-left">
+                                    <div class="bg-tfl-deepNavy/85 backdrop-blur-md rounded-xl px-2.5 py-1 sm:px-3 sm:py-1.5 border border-white/15 max-w-[80%]">
+                                        <p class="text-[9px] sm:text-xs font-bold text-white truncate">
+                                            You Have the Potential. Do You Have the Right Ecosystem?
+                                        </p>
+                                        <p class="text-[8px] sm:text-[10px] text-tfl-goldLight font-medium">
+                                            Founders Global Institute • Click to Watch
+                                        </p>
+                                    </div>
+                                    <span class="bg-tfl-orange text-white text-[9px] sm:text-xs font-black px-2.5 py-1 rounded-lg flex items-center gap-1 shadow-sm">
+                                        <i class="ph-fill ph-play"></i> WATCH
+                                    </span>
+                                </div>
+
+                            </div>
+
+                            <!-- Live Iframe Mount Point -->
+                            <div id="heroIframeContainer" class="w-full h-full hidden"></div>
+
                         </div>
                     </div>
                 </div>
@@ -895,6 +945,33 @@
 
     <!-- Countdown & Scroll JavaScript -->
     <script>
+        function playHeroVideo() {
+            const facade = document.getElementById('heroVideoFacade');
+            const iframeContainer = document.getElementById('heroIframeContainer');
+            if (!facade || !iframeContainer) return;
+
+            iframeContainer.innerHTML = `
+                <iframe 
+                    class="w-full h-full absolute inset-0"
+                    src="https://www.youtube-nocookie.com/embed/OoqaHaoha90?autoplay=1&rel=0&modestbranding=1&playsinline=1&enablejsapi=1" 
+                    title="You Have the Entrepreneurial Potential. Do You Have the Right Ecosystem? | Founders Global Institute" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                    referrerpolicy="strict-origin-when-cross-origin" 
+                    allowfullscreen>
+                </iframe>
+            `;
+            facade.classList.add('hidden');
+            iframeContainer.classList.remove('hidden');
+        }
+
+        function handleHeroVideoKey(e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                playHeroVideo();
+            }
+        }
+
         function toggleMentorBio() {
             const container = document.getElementById('mentorBioContainer');
             const overlay = document.getElementById('mentorBioOverlay');
